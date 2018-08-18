@@ -1,0 +1,21 @@
+language: java
+
+services:
+  - mysql
+
+build:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
+script:
+  - mvn clean verify
+
+test:
+  - mvn test -B
+
+notifications:
+  email:
+    recipients:
+      - gil.maricruz@gmail.com
+    on_success: always # default: change
+    on_failure: always # default: always
+

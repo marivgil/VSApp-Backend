@@ -39,10 +39,6 @@ buildNumber.properties
 # dependencies
 /node_modules
 
-# IDEs and editors
-/.idea
-.c9/
-*.sublime-workspace
 
 # IDE - VSCode
 .vscode/*
@@ -67,3 +63,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+/target
+.idea
