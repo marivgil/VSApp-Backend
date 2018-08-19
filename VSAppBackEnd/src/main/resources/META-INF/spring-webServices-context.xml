@@ -8,15 +8,12 @@ http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
 http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <!-- =========================== -->
-    <!-- =========JAXB / CXF ========= -->
+    <!-- =========JAXB / CXF ======= -->
     <!-- =========================== -->
 
     <import resource="classpath:META-INF/cxf/cxf.xml" />
-    <!--<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />-->
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-
     <bean id="jaxbProvider" class="org.apache.cxf.jaxrs.provider.JAXBElementProvider" />
-
     <bean id='jacksonProvider' class='org.codehaus.jackson.jaxrs.JacksonJaxbJsonProvider' />
 
 
@@ -25,19 +22,28 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
     <!-- =========================== -->
 
     <jaxrs:server id="rest" address="/"  >
+
         <jaxrs:serviceBeans>
+            <ref bean="userRest" />
         </jaxrs:serviceBeans>
+
         <jaxrs:extensionMappings>
             <entry key="json" value="application/json" />
-            <!--<entry key="xml" value="application/xml" />-->
         </jaxrs:extensionMappings>
+
         <jaxrs:providers>
             <ref bean="jaxbProvider" />
             <ref bean="jacksonProvider" />
         </jaxrs:providers>
+
         <jaxrs:features>
             <cxf:logging />
         </jaxrs:features>
+
     </jaxrs:server>
+
+    <bean id="userRest" class="service.UserRest">
+        <property name="userService" ref="services.user"/>
+    </bean>
 
 </beans>

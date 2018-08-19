@@ -6,25 +6,18 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-
-
 	<tx:annotation-driven transaction-manager="persistence.transactionManager"	proxy-target-class="true" />
 
-	<!--
-            ========================= GENERAL DEFINITIONS =========================
-        -->
-	<!--
-		Configurer that replaces ${...} placeholders with values from
-		properties files
-	-->
-	<!-- (in this case, mail and JDBC related properties) -->
+	<!-- ======================================== -->
+	<!-- ========= Definiciones generales ======= -->
+	<!-- ======================================== -->
+
 	<bean id="persistence.propertyConfigurer"
 		  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
 				<value>classpath*:META-INF/hibernate.properties</value>
 				<value>classpath*:META-INF/jdbc.properties</value>
-				<!-- <value>classpath*:META-INF/jdbc.MYSQL.properties</value> -->
 			</list>
 		</property>
 	</bean>
@@ -42,10 +35,6 @@
 
 	</bean>
 
-	<!--
-		Defines a global session factory that will be used by all modules.
-	-->
-
 	<bean id="persistence.sessionFactory"
 		  class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" >
 
@@ -53,10 +42,6 @@
 
 		<property name="hibernateProperties">
 			<props>
-				<!--
-					Configuration generic properties. They are loaded from file
-					hibernate.properties
-				-->
 				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
 				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
 				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
@@ -77,8 +62,6 @@
 
 	</bean>
 
-
-	<!-- Transaction manager for a single JDBC DataSource -->
 	<bean id="persistence.transactionManager"
 		  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
@@ -92,12 +75,12 @@
 		</constructor-arg>
 	</bean>
 
+	<!-- =================================== -->
+	<!-- ========= Beans de negocio ======== -->
+	<!-- =================================== -->
 
-	<!-- ________________________________________ -->
-	<!-- ________________________________________ -->
-	<!-- ___________ Beans de negocio___________ -->
-	<!-- ________________________________________ -->
-	<!-- ________________________________________ -->
-
+	<bean id="persistence.userrepository" class="persistence.repositories.UserRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
 
 </beans>
