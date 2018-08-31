@@ -1,17 +1,18 @@
 package persistence.service;
 
 import org.springframework.transaction.annotation.Transactional;
+import persistence.repositories.GenericRepository;
 import java.io.Serializable;
 
 public class GenericService<T> implements Serializable {
 
-    private GenericService<T> repository;
+    private GenericRepository<T> repository;
 
-    private GenericService<T> getRepository() {
+    public GenericRepository<T> getRepository() {
         return this.repository;
     }
 
-    public void setRepository(final GenericService<T> repository) {
+    public void setRepository(final GenericRepository<T> repository) {
         this.repository = repository;
     }
 

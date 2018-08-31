@@ -13,5 +13,8 @@
 		<property name="repository" ref="persistence.userrepository" />
 	</bean>
 
+	<bean id="services.receptionCenter" class="persistence.service.ReceptionCenterService">
+		<property name="repository" ref="persistence.receptioncenterrepository" />
+	</bean>
 
 </beans>

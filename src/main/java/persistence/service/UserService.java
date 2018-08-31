@@ -1,8 +1,9 @@
 package persistence.service;
 
+import model.User;
 import persistence.repositories.UserRepository;
 
-public class UserService {
+public class UserService extends GenericService<User>{
 
     private UserRepository repository;
 
