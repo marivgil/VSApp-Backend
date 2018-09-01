@@ -12,6 +12,11 @@ script:
 test:
   - mvn test -B
 
+before_install:
+  - mysql -e 'CREATE DATABASE vsdb;'
+  - mysql -e 'USE vsdb;'
+
+
 notifications:
   email:
     recipients:
