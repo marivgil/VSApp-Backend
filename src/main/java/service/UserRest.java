@@ -1,11 +1,12 @@
 package service;
 
+import model.User;
 import persistence.service.UserService;
-
+import service.dto.UserDTO;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.core.Response;
 
 @Path("/servicesUsers")
 public class UserRest {
@@ -21,9 +22,24 @@ public class UserRest {
     }
 
     @GET
-    @Path("/testRest/")
+    @Path("/findUserByMail/{mail}")
     @Produces("application/json")
-    public Response findUserByEmailRest(){
-        return Response.ok().build();
+    public UserDTO findUserByEmailRest(@PathParam("mail") final String mail){
+        User user = this.getUserService().findById(mail);
+        if(user==null)
+            return null;
+            else return userToUserDTO(user);
+    }
+
+    private UserDTO userToUserDTO(User user){
+        UserDTO dto = new UserDTO();
+        dto.setPhone(user.getPhone());
+        dto.setName(user.getName());
+        dto.setSurname(user.getSurname());
+        dto.setMail(user.getMail());
+        dto.setLocation(user.getLocation());
+        dto.setArea(user.getArea().toString());
+        dto.setProfile(user.getProfile().toString());
+        return dto;
     }
 }

@@ -1,19 +1,14 @@
-package model;
+package service.dto;
 
-import javax.persistence.Id;
+public class UserDTO {
 
-public class User {
-
-    @Id
     private String mail;
     private String surname;
     private String name;
     private String location;
     private String phone;
-    private Profile profile;
-    private Area area;
-
-    public User(){}
+    private String profile;
+    private String area;
 
     public String getMail() {
         return mail;
@@ -55,19 +50,19 @@ public class User {
         this.phone = phone;
     }
 
-    public Profile getProfile() {
+    public String getProfile() {
         return profile;
     }
 
-    public void setProfile(Profile profile) {
+    public void setProfile(String profile) {
         this.profile = profile;
     }
 
-    public Area getArea() {
+    public String getArea() {
         return area;
     }
 
-    public void setArea(Area area) {
+    public void setArea(String area) {
         this.area = area;
     }
 }
