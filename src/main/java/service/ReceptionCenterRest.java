@@ -40,7 +40,7 @@ public class ReceptionCenterRest {
     @Path("/createReceptionCenter")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response createVehicleRest(ReceptionCenterDTO dto){
+    public Response createReceptionCenterRest(ReceptionCenterDTO dto){
         ReceptionCenter rc = RcDTOtoRc(dto);
         this.getReceptionCenterService().save(rc);
         return Response.ok().build();
