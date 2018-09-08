@@ -36,7 +36,7 @@ public class UserRest {
     @Path("/createUser")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response createVehicleRest(UserDTO dto){
+    public Response createUserRest(UserDTO dto){
         User rc = UserDTOtoUser(dto);
         this.getUserService().save(rc);
         return Response.ok().build();
