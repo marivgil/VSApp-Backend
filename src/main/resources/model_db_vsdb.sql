@@ -7,6 +7,7 @@ USE vsdb;
 select * from ReceptionCenter;
 select * from Location;
 select * from User;
+select * from Request;
 
 insert User 
 values 

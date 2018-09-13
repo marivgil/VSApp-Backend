@@ -17,4 +17,8 @@
 		<property name="repository" ref="persistence.receptioncenterrepository" />
 	</bean>
 
+	<bean id="services.street" class="persistence.service.StreetService">
+		<property name="repository" ref="persistence.requestrepository" />
+	</bean>
+
 </beans>
