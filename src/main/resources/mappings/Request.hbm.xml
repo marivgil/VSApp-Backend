@@ -12,7 +12,11 @@
         <property name="date" />
         <property name="preparedBy" />
         <property name="reviewedBy" />
-        <many-to-one class="model.Clothes" name="clothes"/>
+        <list name="clothes" lazy="false" cascade="all">
+            <key column="round"/>
+            <index column="idClo"/>
+            <one-to-many class="model.Clothes"/>
+        </list>
 
     </class>
 

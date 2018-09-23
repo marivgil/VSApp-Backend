@@ -15,11 +15,12 @@ public class RequestDTO {
         this.round = round;
     }
 
-    private Date date;
+    //private Date date;
     private String preparedBy;
     private String reviewedBy;
-    //private List<ClothesDTO> clothes;
+    private List<ClothesDTO> clothes;
 
+/*
     public Date getDate() {
         return date;
     }
@@ -27,7 +28,7 @@ public class RequestDTO {
     public void setDate(Date date) {
         this.date = date;
     }
-
+*/
     public String getPreparedBy() {
         return preparedBy;
     }
@@ -43,7 +44,7 @@ public class RequestDTO {
     public void setReviewedBy(String reviewedBy) {
         this.reviewedBy = reviewedBy;
     }
-/*
+
     public List<ClothesDTO> getClothes() {
         return clothes;
     }
@@ -51,5 +52,5 @@ public class RequestDTO {
     public void setClothes(List<ClothesDTO> clothes) {
         this.clothes = clothes;
     }
-*/
+
 }

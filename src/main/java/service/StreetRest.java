@@ -1,14 +1,16 @@
 package service;
 
+import model.Clothes;
+import model.Gender;
 import model.Request;
 import persistence.service.StreetService;
+import service.dto.ClothesDTO;
 import service.dto.RequestDTO;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.util.ArrayList;
+import java.util.List;
 
 @Path("/streetService")
 public class StreetRest {
@@ -34,12 +36,66 @@ public class StreetRest {
 
     private Request requestDTOToRequest(RequestDTO dto) {
         Request r = new Request();
-        r.setDate(dto.getDate());
+        //r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
         r.setRound(dto.getRound());
+        r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
         return r;
     }
+
+    private List<Clothes> listClothesDTOToListClothes(List<ClothesDTO> listDto){
+        List<Clothes> listC = new ArrayList<>();
+        for(ClothesDTO dto: listDto){
+            listC.add(clothesDTOToClothes(dto));
+        }
+        return listC;
+    }
+
+    private Clothes clothesDTOToClothes(ClothesDTO dto) {
+        Clothes c = new Clothes();
+        c.setGender(Gender.valueOf(dto.getGender()));
+        c.setName(dto.getName());
+        c.setQuantity(dto.getQuantity());
+        c.setWaist(dto.getWaist());
+        return c;
+    }
+
+    @GET
+    @Path("/findRequestByRound/{round}")
+    @Produces("application/json")
+    public RequestDTO findRequestByRound(@PathParam("round") final String round){
+        return requestToRequestDTO(this.getStreetService().findById(round));
+    }
+
+    private RequestDTO requestToRequestDTO(Request r) {
+        RequestDTO dto = new RequestDTO();
+        //dto.setDate(r.getDate());
+        dto.setPreparedBy(r.getPreparedBy());
+        dto.setReviewedBy(r.getReviewedBy());
+        dto.setRound(r.getRound());
+        dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
+        return dto;
+    }
+
+    private List<ClothesDTO> listClothesToListClothesDTO(List<Clothes> clothes) {
+        List<ClothesDTO> listdto = new ArrayList<>();
+        for(Clothes c: clothes){
+            listdto.add(clothesToClothesDTO(c));
+        }
+        return listdto;
+    }
+
+    private ClothesDTO clothesToClothesDTO(Clothes c) {
+        ClothesDTO dto = new ClothesDTO();
+        dto.setGender(c.getGender().toString());
+        dto.setName(c.getName());
+        dto.setQuantity(c.getQuantity());
+        dto.setWaist(c.getWaist());
+        return dto;
+    }
+
+
 }
 
 

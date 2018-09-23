@@ -1,13 +1,11 @@
-package model;
+package service.dto;
 
-public class Clothes extends Entity{
+public class ClothesDTO {
 
     private String name;
     private String waist;
     private int quantity;
-    private Gender gender;
-
-    public Clothes(){}
+    private String gender;
 
     public String getName() {
         return name;
@@ -33,11 +31,11 @@ public class Clothes extends Entity{
         this.quantity = quantity;
     }
 
-    public Gender getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Gender gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 }

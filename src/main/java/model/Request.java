@@ -15,6 +15,8 @@ public class Request{
     private String reviewedBy;
     private List<Clothes> clothes;
 
+    public Request(){}
+
     public String getRound() {
         return round;
     }
