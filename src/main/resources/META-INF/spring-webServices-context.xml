@@ -27,6 +27,7 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
             <ref bean="userRest" />
             <ref bean="ReceptionCenterRest" />
             <ref bean="RequestRest" />
+            <ref bean="HospitalsRest" />
         </jaxrs:serviceBeans>
 
         <jaxrs:extensionMappings>
@@ -54,5 +55,9 @@ http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
 
     <bean id="RequestRest" class="service.StreetRest">
         <property name="streetService" ref="services.street"/>
+    </bean>
+
+    <bean id="HospitalsRest" class="service.HospitalsRest">
+        <property name="hospitalService" ref="services.hospital"/>
     </bean>
 </beans>
