@@ -87,4 +87,8 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
+	<bean id="persistence.requestrepository" class="persistence.repositories.RequestRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
 </beans>
