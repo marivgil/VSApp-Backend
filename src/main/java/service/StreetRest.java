@@ -65,7 +65,11 @@ public class StreetRest {
     @Path("/findRequestByRound/{round}")
     @Produces("application/json")
     public RequestDTO findRequestByRound(@PathParam("round") final String round){
-        return requestToRequestDTO(this.getStreetService().findById(round));
+        Request request = this.getStreetService().findById(round);
+        if (request==null)
+            return null;
+            else
+                return requestToRequestDTO(request);
     }
 
     private RequestDTO requestToRequestDTO(Request r) {
