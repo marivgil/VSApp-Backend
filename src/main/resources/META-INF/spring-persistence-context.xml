@@ -91,4 +91,8 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
+	<bean id="persistence.hospitalrepository" class="persistence.repositories.HospitalProductRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
 </beans>

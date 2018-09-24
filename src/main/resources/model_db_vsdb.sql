@@ -8,6 +8,8 @@ select * from ReceptionCenter;
 select * from Location;
 select * from User;
 select * from Request;
+select * from Clothes;
+select * from HospitalProduct;
 
 insert User 
 values 
@@ -95,3 +97,12 @@ values
 (46, 'Recoleta', 10, 1),
 (47, 'Almagro', 10, 2),
 (48, 'Once', 10, 3);
+
+insert HospitalProduct
+values
+(1, 'Pañales', 'Posadas', 'Insumo', 30),
+(2, 'Dentifrico', 'Posadas', 'Insumo', 15),
+(3, 'Jabón', 'Posadas', 'Insumo', 3),
+(4, 'Pañales', 'Durand', 'Insumo', 10),
+(5, 'Juguetes', 'Durand', 'Existencia', 11),
+(6, 'Juguetes', 'Posadas', 'Existencia', 12);
