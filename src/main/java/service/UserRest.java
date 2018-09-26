@@ -37,12 +37,12 @@ public class UserRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response createUserRest(UserDTO dto){
-        User rc = UserDTOtoUser(dto);
+        User rc = userDTOtoUser(dto);
         this.getUserService().save(rc);
         return Response.ok().build();
     }
 
-    private User UserDTOtoUser(UserDTO dto){
+    private User userDTOtoUser(UserDTO dto){
         User user = new User();
         user.setPhone(dto.getPhone());
         user.setName(dto.getName());

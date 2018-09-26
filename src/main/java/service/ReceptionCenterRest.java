@@ -29,7 +29,7 @@ public class ReceptionCenterRest {
     @Path("/findReceptionCenterByLocation/{location}")
     @Produces("application/json")
     public List<ReceptionCenterDTO> findReceptionCenterByLocation(@PathParam("location") final String location){
-        return LRCToLRCDto(
+        return lRCToLRCDto(
                 this.getReceptionCenterService().findReceptionCenterByLocation(location)
                 );
     }
@@ -41,7 +41,7 @@ public class ReceptionCenterRest {
     @Produces("application/json")
     @Consumes("application/json")
     public Response createReceptionCenterRest(ReceptionCenterDTO dto){
-        ReceptionCenter rc = RcDTOtoRc(dto);
+        ReceptionCenter rc = rcDTOtoRc(dto);
         this.getReceptionCenterService().save(rc);
         return Response.ok().build();
     }
@@ -50,7 +50,7 @@ public class ReceptionCenterRest {
 
 
 
-    private ReceptionCenter RcDTOtoRc(ReceptionCenterDTO dto){
+    private ReceptionCenter rcDTOtoRc(ReceptionCenterDTO dto){
         ReceptionCenter rc = new ReceptionCenter();
         rc.setPhone(dto.getPhone());
         rc.setLocation(dto.getLocation());
@@ -68,15 +68,15 @@ public class ReceptionCenterRest {
     }
 
 
-    private List<ReceptionCenterDTO> LRCToLRCDto(List<ReceptionCenter> lrc){
+    private List<ReceptionCenterDTO> lRCToLRCDto(List<ReceptionCenter> lrc){
         List<ReceptionCenterDTO> ldto = new ArrayList<>();
         for(ReceptionCenter rc: lrc){
-            ldto.add(RCToRCDto(rc));
+            ldto.add(rCToRCDto(rc));
         }
         return ldto;
     }
 
-    private ReceptionCenterDTO RCToRCDto(ReceptionCenter rc){
+    private ReceptionCenterDTO rCToRCDto(ReceptionCenter rc){
         ReceptionCenterDTO dto = new ReceptionCenterDTO();
         dto.setLocation(rc.getLocation());
         dto.setName(rc.getName());
