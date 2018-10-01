@@ -36,7 +36,7 @@ public class StreetRest {
 
     private Request requestDTOToRequest(RequestDTO dto) {
         Request r = new Request();
-        //r.setDate(dto.getDate());
+        r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
         r.setRound(dto.getRound());
@@ -74,7 +74,7 @@ public class StreetRest {
 
     private RequestDTO requestToRequestDTO(Request r) {
         RequestDTO dto = new RequestDTO();
-        //dto.setDate(r.getDate());
+        dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
         dto.setRound(r.getRound());
