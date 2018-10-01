@@ -1,16 +1,16 @@
 package service.dto;
 
+import java.util.Date;
 import java.util.List;
 
 public class RequestDTO {
 
     private String round;
-    //private Date date;
+    private Date date;
     private String preparedBy;
     private String reviewedBy;
     private List<ClothesDTO> clothes;
 
-/*
     public Date getDate() {
         return date;
     }
@@ -18,9 +18,6 @@ public class RequestDTO {
     public void setDate(Date date) {
         this.date = date;
     }
-
-
-*/
 
     public String getRound() {
         return round;
