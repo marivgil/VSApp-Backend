@@ -1,7 +1,9 @@
 package service;
 
+import model.Hospital;
 import model.HospitalProduct;
 import persistence.service.HospitalService;
+import service.dto.HospitalDTO;
 import service.dto.HospitalProductDTO;
 
 import javax.ws.rs.*;
@@ -39,11 +41,19 @@ public class HospitalsRest {
 
     private HospitalProductDTO productToProductDTO(HospitalProduct hp){
         HospitalProductDTO hpdto = new HospitalProductDTO();
-        hpdto.setHospital(hp.getHospital().getName());
+        hpdto.setHospital(hospitalToHospitalDTO(hp.getHospital()));
         hpdto.setQuantity(hp.getQuantity());
         hpdto.setName(hp.getName());
         hpdto.setType(hp.getType());
         return hpdto;
+    }
+
+    private HospitalDTO hospitalToHospitalDTO(Hospital h) {
+        HospitalDTO dto = new HospitalDTO();
+        dto.setName(h.getName());
+        dto.setPhone(h.getPhone());
+        dto.setAddress(h.getAddress());
+        return dto;
     }
 
     @POST
@@ -58,12 +68,19 @@ public class HospitalsRest {
 
     private HospitalProduct productDTOToProduct(HospitalProductDTO hpdto){
         HospitalProduct hp = new HospitalProduct();
-        /*FIXME tengo que buscar el hospital*/
-        //hp.setHospital(this.getHospitalService().findById(hpdto.getHospital()));
+        hp.setHospital(hospitalDTOToHospital(hpdto.getHospital()));
         hp.setQuantity(hpdto.getQuantity());
         hp.setName(hpdto.getName());
         hp.setType(hpdto.getType());
         return hp;
+    }
+
+    private Hospital hospitalDTOToHospital(HospitalDTO dto) {
+        Hospital h = new Hospital();
+        h.setName(dto.getName());
+        h.setPhone(dto.getPhone());
+        h.setAddress(dto.getAddress());
+        return h;
     }
 
     @GET
