@@ -64,4 +64,11 @@ public class HospitalsRest {
         hp.setType(hpdto.getType());
         return hp;
     }
+
+    @GET
+    @Path("/getAllNamesHospitals")
+    @Produces("application/json")
+    public List<String> getAllNamesHospitals(){
+        return this.getHospitalService().getAllNamesHospitals();
+    }
 }

@@ -10,6 +10,15 @@ select * from User;
 select * from Request;
 select * from Clothes;
 select * from HospitalProduct;
+select * from Hospital;
+
+insert Hospital
+values
+(1, 'Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
+(2, 'Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
+(3, 'Santojanni', 'Pilar 950, Buenos Aires', ''),
+(4, 'Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
+
 
 insert User 
 values 
@@ -100,9 +109,9 @@ values
 
 insert HospitalProduct
 values
-(1, 'Pañales', 'Posadas', 'Insumo', 30),
-(2, 'Dentifrico', 'Posadas', 'Insumo', 15),
-(3, 'Jabón', 'Posadas', 'Insumo', 3),
-(4, 'Pañales', 'Durand', 'Insumo', 10),
-(5, 'Juguetes', 'Durand', 'Existencia', 11),
-(6, 'Juguetes', 'Posadas', 'Existencia', 12);
+(4, 'Pañales', 'Posadas', 'Insumo', 30),
+(5, 'Dentifrico', 'Posadas', 'Insumo', 15),
+(6, 'Jabón', 'Posadas', 'Insumo', 3),
+(7, 'Pañales', 'Durand', 'Insumo', 10),
+(8, 'Juguetes', 'Durand', 'Existencia', 11),
+(9, 'Juguetes', 'Posadas', 'Existencia', 12);
