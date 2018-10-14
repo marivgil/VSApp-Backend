@@ -14,4 +14,8 @@ public class StreetService extends GenericService<Request>{
     public void setRepository(RequestRepository repository) {
         this.repository = repository;
     }
+
+    public Request findRequestByIdRound(String round) {
+        return this.getRepository().findRequestByIdRound(round);
+    }
 }

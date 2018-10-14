@@ -3,9 +3,11 @@ package service;
 import model.Clothes;
 import model.Gender;
 import model.Request;
+import model.Round;
 import persistence.service.StreetService;
 import service.dto.ClothesDTO;
 import service.dto.RequestDTO;
+import service.dto.RoundDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
@@ -39,11 +41,19 @@ public class StreetRest {
         r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
-        /*FIXME buscar el reound a la base*/
-        //r.setRound(dto.getRound());
+        r.setRound(roundDTOToRound(dto.getRound()));
         r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
         return r;
     }
+
+    private Round roundDTOToRound(RoundDTO dto) {
+        Round r = new Round();
+        r.setCode(dto.getCode());
+        r.setName(dto.getName());
+        r.setCoordinator(dto.getCoordinator());
+        return r;
+    }
+
 
     private List<Clothes> listClothesDTOToListClothes(List<ClothesDTO> listDto){
         List<Clothes> listC = new ArrayList<>();
@@ -67,7 +77,7 @@ public class StreetRest {
     @Path("/findRequestByRound/{round}")
     @Produces("application/json")
     public RequestDTO findRequestByRound(@PathParam("round") final String round){
-        Request request = this.getStreetService().findById(round);
+        Request request = this.getStreetService().findRequestByIdRound(round);
         if (request==null)
             return null;
             else
@@ -79,10 +89,19 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setRound(r.getRound().getCode() + " - " + r.getRound().getName());
+        dto.setRound(roundToRoundDTO(r.getRound()));
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
         return dto;
     }
+
+    private RoundDTO roundToRoundDTO(Round round) {
+        RoundDTO dto = new RoundDTO();
+        dto.setCode(round.getCode());
+        dto.setName(round.getName());
+        dto.setCoordinator(round.getCoordinator());
+        return dto;
+    }
+
 
     private List<ClothesDTO> listClothesToListClothesDTO(List<Clothes> clothes) {
         List<ClothesDTO> listdto = new ArrayList<>();
@@ -100,8 +119,4 @@ public class StreetRest {
         dto.setWaist(c.getWaist());
         return dto;
     }
-
-
 }
-
-
