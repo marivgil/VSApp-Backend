@@ -1,0 +1,22 @@
+
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping default-access="field"
+                   default-cascade="save-update">
+
+    <class name="model.WeeklyRound">
+
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <many-to-one name="round" class="model.Round" lazy="false" cascade="all"/>
+        <property name="description" />
+        <property name="sinceHour" type="java.time.LocalDateTime"/>
+        <property name="untilHour" type="java.time.LocalDateTime"/>
+        <many-to-one name="currentCoords" class="model.Coord"/>
+
+    </class>
+
+</hibernate-mapping>

@@ -24,7 +24,8 @@ public class HospitalProductRepository
             @Override
             public List<HospitalProduct> doInHibernate(final Session session) throws HibernateException {
                 Criteria criteria = session.createCriteria(HospitalProduct.class, "product")
-                        .add(Restrictions.eq("hospital", hospital ))
+                        .createAlias("product.hospital","hospital")
+                        .add(Restrictions.eq("hospital.name", hospital ))
                         ;
                 return (List<HospitalProduct>)criteria.list();
             }

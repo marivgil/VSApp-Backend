@@ -11,13 +11,35 @@ select * from Request;
 select * from Clothes;
 select * from HospitalProduct;
 select * from Hospital;
+select * from Round;
+select * from WeeklyRound;
+
+insert Round
+values
+('1', 'Mitre', ''),
+('2', 'Houssay', ''),
+('3', 'Colon', ''),
+('4', 'Yrigoyen', ''),
+('5', 'Corrientes', ''),
+('6', 'Belgrano', ''),
+('7', 'Boedo', ''),
+('8', 'San José', ''),
+('9', 'Callao', ''),
+('10', 'Lima', ''),
+('11', 'Alem', ''),
+('13', 'Rivadavia', ''),
+('B1', 'Base Once', ''),
+('B2', 'Base Ramos', ''),
+('B4', 'Base Constitución', ''),
+('B5', 'Base Obelisco', ''),
+('B6', 'Base Miserere', '');
 
 insert Hospital
 values
-(1, 'Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
-(2, 'Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
-(3, 'Santojanni', 'Pilar 950, Buenos Aires', ''),
-(4, 'Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
+('Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
+('Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
+('Santojanni', 'Pilar 950, Buenos Aires', ''),
+('Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
 
 
 insert User 

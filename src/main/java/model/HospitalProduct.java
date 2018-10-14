@@ -3,7 +3,7 @@ package model;
 public class HospitalProduct extends Entity{
 
     private String name;
-    private String hospital;
+    private Hospital hospital;
     private String type;
     private int quantity;
 
@@ -17,11 +17,11 @@ public class HospitalProduct extends Entity{
         this.name = name;
     }
 
-    public String getHospital() {
+    public Hospital getHospital() {
         return hospital;
     }
 
-    public void setHospital(String hospital) {
+    public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 

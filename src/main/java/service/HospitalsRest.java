@@ -39,7 +39,7 @@ public class HospitalsRest {
 
     private HospitalProductDTO productToProductDTO(HospitalProduct hp){
         HospitalProductDTO hpdto = new HospitalProductDTO();
-        hpdto.setHospital(hp.getHospital());
+        hpdto.setHospital(hp.getHospital().getName());
         hpdto.setQuantity(hp.getQuantity());
         hpdto.setName(hp.getName());
         hpdto.setType(hp.getType());
@@ -58,7 +58,8 @@ public class HospitalsRest {
 
     private HospitalProduct productDTOToProduct(HospitalProductDTO hpdto){
         HospitalProduct hp = new HospitalProduct();
-        hp.setHospital(hpdto.getHospital());
+        /*FIXME tengo que buscar el hospital*/
+        //hp.setHospital(this.getHospitalService().findById(hpdto.getHospital()));
         hp.setQuantity(hpdto.getQuantity());
         hp.setName(hpdto.getName());
         hp.setType(hpdto.getType());
