@@ -1,15 +1,11 @@
 package model;
 
-
-import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
 
-public class Request{
+public class Request extends Entity{
 
-    @Id
-    private String round;
-
+    private Round round;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
@@ -17,11 +13,11 @@ public class Request{
 
     public Request(){}
 
-    public String getRound() {
+    public Round getRound() {
         return round;
     }
 
-    public void setRound(String round) {
+    public void setRound(Round round) {
         this.round = round;
     }
 

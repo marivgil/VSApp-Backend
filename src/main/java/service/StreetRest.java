@@ -39,7 +39,8 @@ public class StreetRest {
         r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
-        r.setRound(dto.getRound());
+        /*FIXME buscar el reound a la base*/
+        //r.setRound(dto.getRound());
         r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
         return r;
     }
@@ -61,6 +62,7 @@ public class StreetRest {
         return c;
     }
 
+    /*FIXME este servicio ahora debe buscar por el nombre del recorrido, ya no es más un string,ahora es un obejto*/
     @GET
     @Path("/findRequestByRound/{round}")
     @Produces("application/json")
@@ -77,7 +79,7 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setRound(r.getRound());
+        dto.setRound(r.getRound().getCode() + " - " + r.getRound().getName());
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
         return dto;
     }
