@@ -5,7 +5,7 @@ import java.util.List;
 
 public class RequestDTO {
 
-    private RoundDTO round;
+    private WeeklyRoundDTO weeklyRound;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
@@ -19,12 +19,12 @@ public class RequestDTO {
         this.date = date;
     }
 
-    public RoundDTO getRound() {
-        return round;
+    public WeeklyRoundDTO getWeeklyRound() {
+        return weeklyRound;
     }
 
-    public void setRound(RoundDTO round) {
-        this.round = round;
+    public void setWeeklyRound(WeeklyRoundDTO weeklyRound) {
+        this.weeklyRound = weeklyRound;
     }
 
     public String getPreparedBy() {

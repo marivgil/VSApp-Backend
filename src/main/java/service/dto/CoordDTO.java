@@ -1,6 +1,6 @@
-package model;
+package service.dto;
 
-public class Coord extends Entity{
+public class CoordDTO {
     private double lat;
     private double lng;
 
@@ -19,4 +19,5 @@ public class Coord extends Entity{
     public void setLng(double lng) {
         this.lng = lng;
     }
+
 }

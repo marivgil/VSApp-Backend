@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Request extends Entity{
 
-    private Round round;
+    private WeeklyRound weeklyRound;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
@@ -13,12 +13,12 @@ public class Request extends Entity{
 
     public Request(){}
 
-    public Round getRound() {
-        return round;
+    public WeeklyRound getWeeklyRound() {
+        return weeklyRound;
     }
 
-    public void setRound(Round round) {
-        this.round = round;
+    public void setWeeklyRound(WeeklyRound weeklyRound) {
+        this.weeklyRound = weeklyRound;
     }
 
     public Date getDate() {

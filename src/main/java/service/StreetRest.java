@@ -1,16 +1,12 @@
 package service;
 
-import model.Clothes;
-import model.Gender;
-import model.Request;
-import model.Round;
+import model.*;
 import persistence.service.StreetService;
-import service.dto.ClothesDTO;
-import service.dto.RequestDTO;
-import service.dto.RoundDTO;
+import service.dto.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -41,9 +37,43 @@ public class StreetRest {
         r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
-        r.setRound(roundDTOToRound(dto.getRound()));
+        r.setWeeklyRound(weeklyRoundDTOToWeeklyRound(dto.getWeeklyRound()));
         r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
         return r;
+    }
+
+    private WeeklyRound weeklyRoundDTOToWeeklyRound(WeeklyRoundDTO dto) {
+        WeeklyRound wr = new WeeklyRound();
+        wr.setCurrentCoords(coordDTOToCoord(dto.getCurrentCoords()));
+        wr.setDescription(dto.getDescription());
+        wr.setRound(roundDTOToRound(dto.getRound()));
+/*        wr.setSinceHour(
+                LocalDateTime.of(
+                        Integer.valueOf(dto.getSinceHour().substring(0,4)),
+                        Integer.valueOf(dto.getSinceHour().substring(5,7)),
+                        Integer.valueOf(dto.getSinceHour().substring(8,10)),
+                        0,
+                        0
+                )
+        );
+        wr.setUntilHour(
+                LocalDateTime.of(
+                        Integer.valueOf(dto.getUntilHour().substring(0,4)),
+                        Integer.valueOf(dto.getUntilHour().substring(5,7)),
+                        Integer.valueOf(dto.getUntilHour().substring(8,10)),
+                        0,
+                        0
+                )
+        );
+*/
+        return wr;
+    }
+
+    private Coord coordDTOToCoord(CoordDTO dto){
+        Coord c = new Coord();
+        c.setLat(dto.getLat());
+        c.setLng(dto.getLng());
+        return c;
     }
 
     private Round roundDTOToRound(RoundDTO dto) {
@@ -72,7 +102,7 @@ public class StreetRest {
         return c;
     }
 
-    /*FIXME este servicio ahora debe buscar por el nombre del recorrido, ya no es más un string,ahora es un obejto*/
+    /*FIXME*/
     @GET
     @Path("/findRequestByRound/{round}")
     @Produces("application/json")
@@ -89,8 +119,23 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setRound(roundToRoundDTO(r.getRound()));
+        dto.setWeeklyRound(WeeklyRoundToWeeklyRoundDTO(r.getWeeklyRound()));
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
+        return dto;
+    }
+
+    private WeeklyRoundDTO WeeklyRoundToWeeklyRoundDTO(WeeklyRound wr) {
+        WeeklyRoundDTO dto = new WeeklyRoundDTO();
+        dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
+        dto.setDescription(wr.getDescription());
+        dto.setRound(roundToRoundDTO(wr.getRound()));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formatSinceDate = wr.getSinceHour().format(formatter);
+        dto.setSinceHour(formatSinceDate);
+        String formatUntilDate = wr.getUntilHour().format(formatter);
+        dto.setUntilHour(formatUntilDate);
+
         return dto;
     }
 
@@ -117,6 +162,13 @@ public class StreetRest {
         dto.setName(c.getName());
         dto.setQuantity(c.getQuantity());
         dto.setWaist(c.getWaist());
+        return dto;
+    }
+
+    private CoordDTO coordToCoordDTO(Coord c){
+        CoordDTO dto = new CoordDTO();
+        dto.setLat(c.getLat());
+        dto.setLng(c.getLng());
         return dto;
     }
 }

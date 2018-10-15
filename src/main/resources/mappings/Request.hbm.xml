@@ -11,7 +11,7 @@
         <id name="id">
             <generator class="native"/>
         </id>
-        <many-to-one name="round" class="model.Round" lazy="false" cascade="all"/>
+        <many-to-one name="weeklyRound" class="model.WeeklyRound" lazy="false" cascade="all"/>
         <property name="date" />
         <property name="preparedBy" />
         <property name="reviewedBy" />
