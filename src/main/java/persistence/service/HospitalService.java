@@ -4,8 +4,6 @@ import model.Hospital;
 import model.HospitalProduct;
 import persistence.repositories.HospitalProductRepository;
 import persistence.repositories.HospitalRepository;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class HospitalService  extends GenericService<HospitalProduct>{
@@ -33,12 +31,7 @@ public class HospitalService  extends GenericService<HospitalProduct>{
         return this.getRepository().findByHospital(hospital);
     }
 
-    public List<String> getAllNamesHospitals() {
-        List<Hospital> list =  this.getHospitalRepository().findAll();
-        List<String> listNames = new ArrayList<>();
-        for (Hospital h: list){
-            listNames.add(h.getName());
-        }
-        return listNames;
+    public List<Hospital> getAllHospitals() {
+        return this.getHospitalRepository().findAll();
     }
 }

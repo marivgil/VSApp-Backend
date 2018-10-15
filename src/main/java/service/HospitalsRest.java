@@ -84,9 +84,17 @@ public class HospitalsRest {
     }
 
     @GET
-    @Path("/getAllNamesHospitals")
+    @Path("/getAllHospitals")
     @Produces("application/json")
-    public List<String> getAllNamesHospitals(){
-        return this.getHospitalService().getAllNamesHospitals();
+    public List<HospitalDTO> getAllHospitals(){
+        return listHospitalToListHospitalDTO(this.getHospitalService().getAllHospitals());
+    }
+
+    private List<HospitalDTO> listHospitalToListHospitalDTO(List<Hospital> lh){
+        List<HospitalDTO> ldto = new ArrayList<>();
+        for(Hospital h: lh){
+            ldto.add(hospitalToHospitalDTO(h));
+        }
+        return ldto;
     }
 }
