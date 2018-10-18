@@ -8,6 +8,7 @@ import service.dto.HospitalProductDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -71,6 +72,7 @@ public class HospitalsRest {
         hp.setHospital(hospitalDTOToHospital(hpdto.getHospital()));
         hp.setQuantity(hpdto.getQuantity());
         hp.setName(hpdto.getName());
+        hp.setTimestamp(LocalDateTime.now());
         hp.setType(hpdto.getType());
         return hp;
     }
@@ -96,5 +98,19 @@ public class HospitalsRest {
             ldto.add(hospitalToHospitalDTO(h));
         }
         return ldto;
+    }
+
+    @GET
+    @Path("/getProductsHospitalByDay/{day}")
+    @Produces("application/json")
+    public List<HospitalProductDTO> getProductsHospitalByDay(@PathParam("day") final String day){
+        LocalDateTime timestamp = LocalDateTime.of(
+                Integer.valueOf(day.substring(0,4)),
+                Integer.valueOf(day.substring(4,6)),
+                Integer.valueOf(day.substring(6,8)),
+                0,
+                0,0
+        );
+        return listProductToListProductDTO(this.getHospitalService().getProductsHospitalByDay(timestamp));
     }
 }

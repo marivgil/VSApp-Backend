@@ -13,6 +13,7 @@ select * from HospitalProduct;
 select * from Hospital;
 select * from Round;
 select * from WeeklyRound;
+select * from Coord;
 
 insert Round
 values
@@ -131,9 +132,9 @@ values
 
 insert HospitalProduct
 values
-(4, 'Pañales', 'Posadas', 'Insumo', 30),
-(5, 'Dentifrico', 'Posadas', 'Insumo', 15),
-(6, 'Jabón', 'Posadas', 'Insumo', 3),
-(7, 'Pañales', 'Durand', 'Insumo', 10),
-(8, 'Juguetes', 'Durand', 'Existencia', 11),
-(9, 'Juguetes', 'Posadas', 'Existencia', 12);
+(4, 'Pañales', 'Posadas', 'Insumo', 30, null),
+(5, 'Dentifrico', 'Posadas', 'Insumo', 15, null),
+(6, 'Jabón', 'Posadas', 'Insumo', 3, null),
+(7, 'Pañales', 'Durand', 'Insumo', 10, null),
+(8, 'Juguetes', 'Durand', 'Existencia', 11, null),
+(9, 'Juguetes', 'Posadas', 'Existencia', 12, null);

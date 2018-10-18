@@ -16,6 +16,7 @@
         <many-to-one name="hospital" class="model.Hospital"/>
         <property name="type" />
         <property name="quantity" />
+        <property name="timestamp" type="java.time.LocalDateTime"/>
     </class>
 
 </hibernate-mapping>
