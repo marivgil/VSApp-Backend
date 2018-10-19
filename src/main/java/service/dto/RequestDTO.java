@@ -5,7 +5,6 @@ import java.util.List;
 
 public class RequestDTO {
 
-    private WeeklyRoundDTO weeklyRound;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
@@ -17,14 +16,6 @@ public class RequestDTO {
 
     public void setDate(Date date) {
         this.date = date;
-    }
-
-    public WeeklyRoundDTO getWeeklyRound() {
-        return weeklyRound;
-    }
-
-    public void setWeeklyRound(WeeklyRoundDTO weeklyRound) {
-        this.weeklyRound = weeklyRound;
     }
 
     public String getPreparedBy() {

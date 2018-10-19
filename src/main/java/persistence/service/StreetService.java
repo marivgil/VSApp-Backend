@@ -1,9 +1,10 @@
 package persistence.service;
 
 import model.Request;
+import model.WeeklyRound;
 import persistence.repositories.RequestRepository;
 
-public class StreetService extends GenericService<Request>{
+public class StreetService extends GenericService<WeeklyRound>{
 
     private RequestRepository repository;
 

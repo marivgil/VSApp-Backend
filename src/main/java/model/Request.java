@@ -5,21 +5,12 @@ import java.util.List;
 
 public class Request extends Entity{
 
-    private WeeklyRound weeklyRound;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
     private List<Clothes> clothes;
 
     public Request(){}
-
-    public WeeklyRound getWeeklyRound() {
-        return weeklyRound;
-    }
-
-    public void setWeeklyRound(WeeklyRound weeklyRound) {
-        this.weeklyRound = weeklyRound;
-    }
 
     public Date getDate() {
         return date;

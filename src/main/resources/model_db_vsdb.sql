@@ -6,14 +6,19 @@ USE vsdb;
 
 select * from ReceptionCenter;
 select * from Location;
+
 select * from User;
-select * from Request;
-select * from Clothes;
+
 select * from HospitalProduct;
 select * from Hospital;
+
+select * from Clothes;
+select * from Request;
 select * from Round;
 select * from WeeklyRound;
 select * from Coord;
+
+
 
 insert Round
 values

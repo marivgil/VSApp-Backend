@@ -2,19 +2,12 @@ package service.dto;
 
 public class WeeklyRoundDTO {
 
-    private RoundDTO round;
+    private RequestDTO request;
     private String description;
     private String sinceHour;
     private String untilHour;
     private CoordDTO currentCoords;
-
-    public RoundDTO getRound() {
-        return round;
-    }
-
-    public void setRound(RoundDTO round) {
-        this.round = round;
-    }
+    private RoundDTO round;
 
     public String getDescription() {
         return description;
@@ -46,5 +39,21 @@ public class WeeklyRoundDTO {
 
     public void setCurrentCoords(CoordDTO currentCoords) {
         this.currentCoords = currentCoords;
+    }
+
+    public RequestDTO getRequest() {
+        return request;
+    }
+
+    public void setRequest(RequestDTO request) {
+        this.request = request;
+    }
+
+    public RoundDTO getRound() {
+        return round;
+    }
+
+    public void setRound(RoundDTO round) {
+        this.round = round;
     }
 }

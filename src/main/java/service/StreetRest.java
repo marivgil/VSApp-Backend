@@ -27,26 +27,15 @@ public class StreetRest {
     @Path("/createRequest")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response createRequestRest(RequestDTO dto){
-        this.getStreetService().save(requestDTOToRequest(dto));
+    public Response createRequestRest(WeeklyRoundDTO dto){
+        this.getStreetService().save(weeklyRoundDTOToWeeklyRound(dto));
         return Response.ok().build();
-    }
-
-    private Request requestDTOToRequest(RequestDTO dto) {
-        Request r = new Request();
-        r.setDate(dto.getDate());
-        r.setPreparedBy(dto.getPreparedBy());
-        r.setReviewedBy(dto.getReviewedBy());
-        r.setWeeklyRound(weeklyRoundDTOToWeeklyRound(dto.getWeeklyRound()));
-        r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
-        return r;
     }
 
     private WeeklyRound weeklyRoundDTOToWeeklyRound(WeeklyRoundDTO dto) {
         WeeklyRound wr = new WeeklyRound();
         wr.setCurrentCoords(coordDTOToCoord(dto.getCurrentCoords()));
         wr.setDescription(dto.getDescription());
-        wr.setRound(roundDTOToRound(dto.getRound()));
 /*        wr.setSinceHour(
                 LocalDateTime.of(
                         Integer.valueOf(dto.getSinceHour().substring(0,4)),
@@ -66,8 +55,21 @@ public class StreetRest {
                 )
         );
 */
+        wr.setRequest(requestDTOToRequest(dto.getRequest()));
+        wr.setRound(roundDTOToRound(dto.getRound()));
         return wr;
     }
+
+
+    private Request requestDTOToRequest(RequestDTO dto) {
+        Request r = new Request();
+        r.setDate(dto.getDate());
+        r.setPreparedBy(dto.getPreparedBy());
+        r.setReviewedBy(dto.getReviewedBy());
+        r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
+        return r;
+    }
+
 
     private Coord coordDTOToCoord(CoordDTO dto){
         Coord c = new Coord();
@@ -119,7 +121,6 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setWeeklyRound(weeklyRoundToWeeklyRoundDTO(r.getWeeklyRound()));
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
         return dto;
     }
@@ -128,7 +129,6 @@ public class StreetRest {
         WeeklyRoundDTO dto = new WeeklyRoundDTO();
         dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
         dto.setDescription(wr.getDescription());
-        dto.setRound(roundToRoundDTO(wr.getRound()));
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String formatSinceDate = wr.getSinceHour().format(formatter);
