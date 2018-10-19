@@ -1,11 +1,23 @@
 package model;
 
+import java.time.LocalDateTime;
+
 public class HospitalProduct extends Entity{
 
     private String name;
-    private String hospital;
+    private Hospital hospital;
     private String type;
     private int quantity;
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
+    }
+
+    private LocalDateTime timestamp;
 
     public HospitalProduct(){}
 
@@ -17,11 +29,11 @@ public class HospitalProduct extends Entity{
         this.name = name;
     }
 
-    public String getHospital() {
+    public Hospital getHospital() {
         return hospital;
     }
 
-    public void setHospital(String hospital) {
+    public void setHospital(Hospital hospital) {
         this.hospital = hospital;
     }
 

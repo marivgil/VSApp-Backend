@@ -23,5 +23,6 @@
 
 	<bean id="services.hospital" class="persistence.service.HospitalService">
 		<property name="repository" ref="persistence.hospitalrepository" />
+		<property name="hospitalRepository" ref="persistence.hospitalsrepository" />
 	</bean>
 </beans>

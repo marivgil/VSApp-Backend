@@ -4,7 +4,7 @@ public class HospitalProductDTO {
 
 
     private String name;
-    private String hospital;
+    private HospitalDTO hospital;
     private String type;
     private int quantity;
 
@@ -18,11 +18,11 @@ public class HospitalProductDTO {
         this.name = name;
     }
 
-    public String getHospital() {
+    public HospitalDTO getHospital() {
         return hospital;
     }
 
-    public void setHospital(String hospital) {
+    public void setHospital(HospitalDTO hospital) {
         this.hospital = hospital;
     }
 

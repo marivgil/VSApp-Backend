@@ -1,13 +1,25 @@
 package persistence.service;
 
+import model.Hospital;
 import model.HospitalProduct;
 import persistence.repositories.HospitalProductRepository;
+import persistence.repositories.HospitalRepository;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class HospitalService  extends GenericService<HospitalProduct>{
 
     private HospitalProductRepository repository;
+    private HospitalRepository hospitalRepository;
+
+    public HospitalRepository getHospitalRepository() {
+        return hospitalRepository;
+    }
+
+    public void setHospitalRepository(HospitalRepository hospitalRepository) {
+        this.hospitalRepository = hospitalRepository;
+    }
 
     public HospitalProductRepository getRepository() {
         return repository;
@@ -19,5 +31,13 @@ public class HospitalService  extends GenericService<HospitalProduct>{
 
     public List<HospitalProduct> findByHospital(String hospital) {
         return this.getRepository().findByHospital(hospital);
+    }
+
+    public List<Hospital> getAllHospitals() {
+        return this.getHospitalRepository().findAll();
+    }
+
+    public List<HospitalProduct> getProductsHospitalByDay(LocalDateTime day) {
+        return this.getRepository().getProductsHospitalByDay(day);
     }
 }

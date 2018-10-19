@@ -1,14 +1,12 @@
 package service;
 
-import model.Clothes;
-import model.Gender;
-import model.Request;
+import model.*;
 import persistence.service.StreetService;
-import service.dto.ClothesDTO;
-import service.dto.RequestDTO;
+import service.dto.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -39,10 +37,53 @@ public class StreetRest {
         r.setDate(dto.getDate());
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
-        r.setRound(dto.getRound());
+        r.setWeeklyRound(weeklyRoundDTOToWeeklyRound(dto.getWeeklyRound()));
         r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
         return r;
     }
+
+    private WeeklyRound weeklyRoundDTOToWeeklyRound(WeeklyRoundDTO dto) {
+        WeeklyRound wr = new WeeklyRound();
+        wr.setCurrentCoords(coordDTOToCoord(dto.getCurrentCoords()));
+        wr.setDescription(dto.getDescription());
+        wr.setRound(roundDTOToRound(dto.getRound()));
+/*        wr.setSinceHour(
+                LocalDateTime.of(
+                        Integer.valueOf(dto.getSinceHour().substring(0,4)),
+                        Integer.valueOf(dto.getSinceHour().substring(5,7)),
+                        Integer.valueOf(dto.getSinceHour().substring(8,10)),
+                        0,
+                        0
+                )
+        );
+        wr.setUntilHour(
+                LocalDateTime.of(
+                        Integer.valueOf(dto.getUntilHour().substring(0,4)),
+                        Integer.valueOf(dto.getUntilHour().substring(5,7)),
+                        Integer.valueOf(dto.getUntilHour().substring(8,10)),
+                        0,
+                        0
+                )
+        );
+*/
+        return wr;
+    }
+
+    private Coord coordDTOToCoord(CoordDTO dto){
+        Coord c = new Coord();
+        c.setLat(dto.getLat());
+        c.setLng(dto.getLng());
+        return c;
+    }
+
+    private Round roundDTOToRound(RoundDTO dto) {
+        Round r = new Round();
+        r.setCode(dto.getCode());
+        r.setName(dto.getName());
+        r.setCoordinator(dto.getCoordinator());
+        return r;
+    }
+
 
     private List<Clothes> listClothesDTOToListClothes(List<ClothesDTO> listDto){
         List<Clothes> listC = new ArrayList<>();
@@ -61,11 +102,12 @@ public class StreetRest {
         return c;
     }
 
+    /*FIXME*/
     @GET
     @Path("/findRequestByRound/{round}")
     @Produces("application/json")
     public RequestDTO findRequestByRound(@PathParam("round") final String round){
-        Request request = this.getStreetService().findById(round);
+        Request request = this.getStreetService().findRequestByIdRound(round);
         if (request==null)
             return null;
             else
@@ -77,10 +119,34 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setRound(r.getRound());
+        dto.setWeeklyRound(weeklyRoundToWeeklyRoundDTO(r.getWeeklyRound()));
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
         return dto;
     }
+
+    private WeeklyRoundDTO weeklyRoundToWeeklyRoundDTO(WeeklyRound wr) {
+        WeeklyRoundDTO dto = new WeeklyRoundDTO();
+        dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
+        dto.setDescription(wr.getDescription());
+        dto.setRound(roundToRoundDTO(wr.getRound()));
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        String formatSinceDate = wr.getSinceHour().format(formatter);
+        dto.setSinceHour(formatSinceDate);
+        String formatUntilDate = wr.getUntilHour().format(formatter);
+        dto.setUntilHour(formatUntilDate);
+
+        return dto;
+    }
+
+    private RoundDTO roundToRoundDTO(Round round) {
+        RoundDTO dto = new RoundDTO();
+        dto.setCode(round.getCode());
+        dto.setName(round.getName());
+        dto.setCoordinator(round.getCoordinator());
+        return dto;
+    }
+
 
     private List<ClothesDTO> listClothesToListClothesDTO(List<Clothes> clothes) {
         List<ClothesDTO> listdto = new ArrayList<>();
@@ -99,7 +165,10 @@ public class StreetRest {
         return dto;
     }
 
-
+    private CoordDTO coordToCoordDTO(Coord c){
+        CoordDTO dto = new CoordDTO();
+        dto.setLat(c.getLat());
+        dto.setLng(c.getLng());
+        return dto;
+    }
 }
-
-

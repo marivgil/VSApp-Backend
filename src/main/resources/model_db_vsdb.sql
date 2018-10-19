@@ -10,6 +10,38 @@ select * from User;
 select * from Request;
 select * from Clothes;
 select * from HospitalProduct;
+select * from Hospital;
+select * from Round;
+select * from WeeklyRound;
+select * from Coord;
+
+insert Round
+values
+('1', 'Mitre', ''),
+('2', 'Houssay', ''),
+('3', 'Colon', ''),
+('4', 'Yrigoyen', ''),
+('5', 'Corrientes', ''),
+('6', 'Belgrano', ''),
+('7', 'Boedo', ''),
+('8', 'San José', ''),
+('9', 'Callao', ''),
+('10', 'Lima', ''),
+('11', 'Alem', ''),
+('13', 'Rivadavia', ''),
+('B1', 'Base Once', ''),
+('B2', 'Base Ramos', ''),
+('B4', 'Base Constitución', ''),
+('B5', 'Base Obelisco', ''),
+('B6', 'Base Miserere', '');
+
+insert Hospital
+values
+('Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
+('Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
+('Santojanni', 'Pilar 950, Buenos Aires', ''),
+('Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
+
 
 insert User 
 values 
@@ -100,9 +132,9 @@ values
 
 insert HospitalProduct
 values
-(1, 'Pañales', 'Posadas', 'Insumo', 30),
-(2, 'Dentifrico', 'Posadas', 'Insumo', 15),
-(3, 'Jabón', 'Posadas', 'Insumo', 3),
-(4, 'Pañales', 'Durand', 'Insumo', 10),
-(5, 'Juguetes', 'Durand', 'Existencia', 11),
-(6, 'Juguetes', 'Posadas', 'Existencia', 12);
+(4, 'Pañales', 'Posadas', 'Insumo', 30, null),
+(5, 'Dentifrico', 'Posadas', 'Insumo', 15, null),
+(6, 'Jabón', 'Posadas', 'Insumo', 3, null),
+(7, 'Pañales', 'Durand', 'Insumo', 10, null),
+(8, 'Juguetes', 'Durand', 'Existencia', 11, null),
+(9, 'Juguetes', 'Posadas', 'Existencia', 12, null);

@@ -1,15 +1,11 @@
 package model;
 
-
-import javax.persistence.Id;
 import java.util.Date;
 import java.util.List;
 
-public class Request{
+public class Request extends Entity{
 
-    @Id
-    private String round;
-
+    private WeeklyRound weeklyRound;
     private Date date;
     private String preparedBy;
     private String reviewedBy;
@@ -17,12 +13,12 @@ public class Request{
 
     public Request(){}
 
-    public String getRound() {
-        return round;
+    public WeeklyRound getWeeklyRound() {
+        return weeklyRound;
     }
 
-    public void setRound(String round) {
-        this.round = round;
+    public void setWeeklyRound(WeeklyRound weeklyRound) {
+        this.weeklyRound = weeklyRound;
     }
 
     public Date getDate() {
