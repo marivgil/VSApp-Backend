@@ -1,7 +1,5 @@
 package service.dto;
 
-import model.Coord;
-
 public class WeeklyRoundDTO {
 
     private RoundDTO round;

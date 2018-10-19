@@ -119,12 +119,12 @@ public class StreetRest {
         dto.setDate(r.getDate());
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
-        dto.setWeeklyRound(WeeklyRoundToWeeklyRoundDTO(r.getWeeklyRound()));
+        dto.setWeeklyRound(weeklyRoundToWeeklyRoundDTO(r.getWeeklyRound()));
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
         return dto;
     }
 
-    private WeeklyRoundDTO WeeklyRoundToWeeklyRoundDTO(WeeklyRound wr) {
+    private WeeklyRoundDTO weeklyRoundToWeeklyRoundDTO(WeeklyRound wr) {
         WeeklyRoundDTO dto = new WeeklyRoundDTO();
         dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
         dto.setDescription(wr.getDescription());
