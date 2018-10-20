@@ -11,11 +11,12 @@
         <id name="id">
             <generator class="native"/>
         </id>
-        <many-to-one name="round" class="model.Round" lazy="false" cascade="all"/>
+        <many-to-one name="request" class="model.Request" lazy="false" cascade="all"/>
         <property name="description" />
         <property name="sinceHour" type="java.time.LocalDateTime"/>
         <property name="untilHour" type="java.time.LocalDateTime"/>
         <many-to-one name="currentCoords" class="model.Coord" lazy="false" cascade="all"/>
+        <many-to-one name="round" class="model.Round" lazy="false" cascade="all"/>
 
     </class>
 

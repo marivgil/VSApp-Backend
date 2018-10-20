@@ -4,19 +4,12 @@ import java.time.LocalDateTime;
 
 public class WeeklyRound extends Entity{
 
-    private Round round;
     private String description;
     private LocalDateTime sinceHour;
     private LocalDateTime untilHour;
     private Coord currentCoords;
-
-    public Round getRound() {
-        return round;
-    }
-
-    public void setRound(Round round) {
-        this.round = round;
-    }
+    private Request request;
+    private Round round;
 
     public String getDescription() {
         return description;
@@ -48,5 +41,21 @@ public class WeeklyRound extends Entity{
 
     public void setCurrentCoords(Coord currentCoords) {
         this.currentCoords = currentCoords;
+    }
+
+    public Request getRequest() {
+        return request;
+    }
+
+    public void setRequest(Request request) {
+        this.request = request;
+    }
+
+    public Round getRound() {
+        return round;
+    }
+
+    public void setRound(Round round) {
+        this.round = round;
     }
 }

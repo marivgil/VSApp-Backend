@@ -1,9 +1,11 @@
 package persistence.service;
 
-import model.Request;
+import model.WeeklyRound;
 import persistence.repositories.RequestRepository;
 
-public class StreetService extends GenericService<Request>{
+import java.util.List;
+
+public class StreetService extends GenericService<WeeklyRound>{
 
     private RequestRepository repository;
 
@@ -15,7 +17,12 @@ public class StreetService extends GenericService<Request>{
         this.repository = repository;
     }
 
-    public Request findRequestByIdRound(String round) {
+    /*public Request findRequestByIdRound(String round) {
         return this.getRepository().findRequestByIdRound(round);
+    }
+    */
+
+    public List<WeeklyRound> findAllWeeklyRound() {
+        return this.getRepository().findAllWeeklyRound();
     }
 }

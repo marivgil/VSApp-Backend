@@ -11,13 +11,12 @@
         <id name="id">
             <generator class="native"/>
         </id>
-        <many-to-one name="weeklyRound" class="model.WeeklyRound" lazy="false" cascade="all"/>
         <property name="date" />
         <property name="preparedBy" />
         <property name="reviewedBy" />
         <list name="clothes" lazy="false" cascade="all">
-            <key column="round"/>
-            <index column="idClo"/>
+            <key column="request"/>
+            <index column="idRequest"/>
             <one-to-many class="model.Clothes"/>
         </list>
 
