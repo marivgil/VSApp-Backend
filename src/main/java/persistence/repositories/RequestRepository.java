@@ -8,6 +8,8 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.orm.hibernate4.HibernateCallback;
 
+import java.util.List;
+
 public class RequestRepository
         extends HibernateGenericDAO<WeeklyRound>
         implements GenericRepository<WeeklyRound> {
@@ -51,5 +53,18 @@ public class RequestRepository
 
         });
 
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public List<WeeklyRound> findAllWeeklyRound() {
+
+        return (List<WeeklyRound>) this.getHibernateTemplate().execute(new HibernateCallback() {
+            @Override
+            public List<WeeklyRound> doInHibernate(final Session session) throws HibernateException {
+                Criteria criteria = session.createCriteria(WeeklyRound.class, "weeklyRound");
+                return (List<WeeklyRound>) criteria.list();
+            }
+
+        });
     }
 }

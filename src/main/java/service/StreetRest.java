@@ -6,7 +6,6 @@ import service.dto.*;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,6 +41,7 @@ public class StreetRest {
                         Integer.valueOf(dto.getSinceHour().substring(5,7)),
                         Integer.valueOf(dto.getSinceHour().substring(8,10)),
                         0,
+                        0
                         0
                 )
         );
@@ -104,16 +104,23 @@ public class StreetRest {
         return c;
     }
 
-    /*FIXME*/
     @GET
-    @Path("/findRequestByRound/{round}")
+    @Path("/findAllRequests")
     @Produces("application/json")
-    public RequestDTO findRequestByRound(@PathParam("round") final String round){
-        Request request = this.getStreetService().findRequestByIdRound(round);
-        if (request==null)
+    public List<WeeklyRoundDTO> findAllRequests(){
+        List<WeeklyRound> weeklyRound = this.getStreetService().findAllWeeklyRound();
+        if (weeklyRound==null)
             return null;
             else
-                return requestToRequestDTO(request);
+                return listWeeklyRoundToListWeeklyRoundDTO(weeklyRound);
+    }
+
+    private List<WeeklyRoundDTO> listWeeklyRoundToListWeeklyRoundDTO(List<WeeklyRound> lwr) {
+        List<WeeklyRoundDTO> listdto = new ArrayList<>();
+        for(WeeklyRound wr: lwr){
+            listdto.add(weeklyRoundToWeeklyRoundDTO(wr));
+        }
+        return listdto;
     }
 
     private RequestDTO requestToRequestDTO(Request r) {
@@ -129,13 +136,15 @@ public class StreetRest {
         WeeklyRoundDTO dto = new WeeklyRoundDTO();
         dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
         dto.setDescription(wr.getDescription());
-
+/*
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
         String formatSinceDate = wr.getSinceHour().format(formatter);
         dto.setSinceHour(formatSinceDate);
         String formatUntilDate = wr.getUntilHour().format(formatter);
         dto.setUntilHour(formatUntilDate);
-
+*/
+        dto.setRequest(requestToRequestDTO(wr.getRequest()));
+        dto.setRound(roundToRoundDTO(wr.getRound()));
         return dto;
     }
 
