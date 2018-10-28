@@ -48,15 +48,18 @@ public class Request extends Entity{
         this.clothes = clothes;
     }
 
-    public List<Clothes> getClothingMatrix(List<Clothing> listClothing, List<ClothingSize> listSizes) {
+    public List<Clothes> getClothingMatrix(List<Clothing> listClothing, List<ClothingSize> listSizes, List<Gender> genders) {
         this.clothes = new ArrayList<>();
         for(Clothing c: listClothing){
             for(ClothingSize s: listSizes){
-                Clothes clothe = new Clothes();
-                clothe.setQuantity(0);
-                clothe.setClothing(c);
-                clothe.setSize(s);
-                this.clothes.add(clothe);
+                for(Gender g: genders){
+                    Clothes clothe = new Clothes();
+                    clothe.setQuantity(0);
+                    clothe.setClothing(c);
+                    clothe.setSize(s);
+                    clothe.setGender(g);
+                    this.clothes.add(clothe);
+                }
             }
         }
         return this.clothes;

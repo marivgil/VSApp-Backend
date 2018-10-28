@@ -34,25 +34,51 @@ public class ClothingTestCase {
 
 
         Request pedido = new Request();
-        List<Clothes> listaRopa = pedido.getClothingMatrix(listClothing, listSizes);
+        List<Gender> genders = new ArrayList<>();
+        genders.add(Gender.HOMBRE);
+        genders.add(Gender.MUJER);
+        List<Clothes> listaRopa = pedido.getClothingMatrix(listClothing, listSizes, genders);
 
-        assertEquals(listaRopa.size(), 4);
+        assertEquals(listaRopa.size(), 8);
 
         Clothes ropa = pedido.getClothes().get(0);
         assertEquals(ropa.getClothing(), remera);
         assertEquals(ropa.getSize(), xl);
+        assertEquals(ropa.getGender(), Gender.HOMBRE);
 
         Clothes ropa2 = pedido.getClothes().get(1);
         assertEquals(ropa2.getClothing(), remera);
-        assertEquals(ropa2.getSize(), talle46);
+        assertEquals(ropa2.getSize(), xl);
+        assertEquals(ropa2.getGender(), Gender.MUJER);
 
         Clothes ropa3 = pedido.getClothes().get(2);
-        assertEquals(ropa3.getClothing(), pantalon);
-        assertEquals(ropa3.getSize(), xl);
+        assertEquals(ropa3.getClothing(), remera);
+        assertEquals(ropa3.getSize(), talle46);
+        assertEquals(ropa3.getGender(), Gender.HOMBRE);
 
         Clothes ropa4 = pedido.getClothes().get(3);
-        assertEquals(ropa4.getClothing(), pantalon);
+        assertEquals(ropa4.getClothing(), remera);
         assertEquals(ropa4.getSize(), talle46);
+        assertEquals(ropa4.getGender(), Gender.MUJER);
 
+        Clothes ropa5 = pedido.getClothes().get(4);
+        assertEquals(ropa5.getClothing(), pantalon);
+        assertEquals(ropa5.getSize(), xl);
+        assertEquals(ropa5.getGender(), Gender.HOMBRE);
+
+        Clothes ropa6 = pedido.getClothes().get(5);
+        assertEquals(ropa6.getClothing(), pantalon);
+        assertEquals(ropa6.getSize(), xl);
+        assertEquals(ropa6.getGender(), Gender.MUJER);
+
+        Clothes ropa7 = pedido.getClothes().get(6);
+        assertEquals(ropa7.getClothing(), pantalon);
+        assertEquals(ropa7.getSize(), talle46);
+        assertEquals(ropa7.getGender(), Gender.HOMBRE);
+
+        Clothes ropa8 = pedido.getClothes().get(7);
+        assertEquals(ropa8.getClothing(), pantalon);
+        assertEquals(ropa8.getSize(), talle46);
+        assertEquals(ropa8.getGender(), Gender.MUJER);
     }
 }
