@@ -1,29 +1,16 @@
 package model;
 
+import model.clothing.Clothing;
+import model.clothingSize.ClothingSize;
+
 public class Clothes extends Entity{
 
-    private String name;
-    private String waist;
+    private Clothing clothing;
+    private ClothingSize size;
     private int quantity;
     private Gender gender;
 
     public Clothes(){}
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getWaist() {
-        return waist;
-    }
-
-    public void setWaist(String waist) {
-        this.waist = waist;
-    }
 
     public int getQuantity() {
         return quantity;
@@ -39,5 +26,21 @@ public class Clothes extends Entity{
 
     public void setGender(Gender gender) {
         this.gender = gender;
+    }
+
+    public Clothing getClothing() {
+        return clothing;
+    }
+
+    public void setClothing(Clothing clothing) {
+        this.clothing = clothing;
+    }
+
+    public ClothingSize getSize() {
+        return size;
+    }
+
+    public void setSize(ClothingSize size) {
+        this.size = size;
     }
 }

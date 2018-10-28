@@ -98,9 +98,9 @@ public class StreetRest {
     private Clothes clothesDTOToClothes(ClothesDTO dto) {
         Clothes c = new Clothes();
         c.setGender(Gender.valueOf(dto.getGender()));
-        c.setName(dto.getName());
+        //c.setName(dto.getName());
         c.setQuantity(dto.getQuantity());
-        c.setWaist(dto.getWaist());
+        //c.setWaist(dto.getWaist());
         return c;
     }
 
@@ -168,9 +168,9 @@ public class StreetRest {
     private ClothesDTO clothesToClothesDTO(Clothes c) {
         ClothesDTO dto = new ClothesDTO();
         dto.setGender(c.getGender().toString());
-        dto.setName(c.getName());
+        //dto.setName(c.getName());
         dto.setQuantity(c.getQuantity());
-        dto.setWaist(c.getWaist());
+        //dto.setWaist(c.getWaist());
         return dto;
     }
 
