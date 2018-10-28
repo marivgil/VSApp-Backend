@@ -37,6 +37,22 @@ public class ClothingTestCase {
         List<Clothes> listaRopa = pedido.getClothingMatrix(listClothing, listSizes);
 
         assertEquals(listaRopa.size(), 4);
-        //assertTrue(listaRopa.contains(new Clothes()));
+
+        Clothes ropa = pedido.getClothes().get(0);
+        assertEquals(ropa.getClothing(), remera);
+        assertEquals(ropa.getSize(), xl);
+
+        Clothes ropa2 = pedido.getClothes().get(1);
+        assertEquals(ropa2.getClothing(), remera);
+        assertEquals(ropa2.getSize(), talle46);
+
+        Clothes ropa3 = pedido.getClothes().get(2);
+        assertEquals(ropa3.getClothing(), pantalon);
+        assertEquals(ropa3.getSize(), xl);
+
+        Clothes ropa4 = pedido.getClothes().get(3);
+        assertEquals(ropa4.getClothing(), pantalon);
+        assertEquals(ropa4.getSize(), talle46);
+
     }
 }
