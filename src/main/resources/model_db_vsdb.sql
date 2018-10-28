@@ -17,41 +17,42 @@ select * from Request;
 select * from Round;
 select * from WeeklyRound;
 select * from Coord;
+select * from ClothingDownSize;
 
 
 
 insert Round
 values
-('1', 'Mitre', ''),
-('2', 'Houssay', ''),
-('3', 'Colon', ''),
-('4', 'Yrigoyen', ''),
-('5', 'Corrientes', ''),
-('6', 'Belgrano', ''),
-('7', 'Boedo', ''),
-('8', 'San José', ''),
-('9', 'Callao', ''),
-('10', 'Lima', ''),
-('11', 'Alem', ''),
-('13', 'Rivadavia', ''),
-('B1', 'Base Once', ''),
-('B2', 'Base Ramos', ''),
-('B4', 'Base Constitución', ''),
-('B5', 'Base Obelisco', ''),
-('B6', 'Base Miserere', '');
+(1, '1', 'Mitre', ''),
+(2, '2', 'Houssay', ''),
+(3, '3', 'Colon', ''),
+(4, '4', 'Yrigoyen', ''),
+(5, '5', 'Corrientes', ''),
+(6, '6', 'Belgrano', ''),
+(7, '7', 'Boedo', ''),
+(8, '8', 'San José', ''),
+(9, '9', 'Callao', ''),
+(10, '10', 'Lima', ''),
+(11, '11', 'Alem', ''),
+(12, '13', 'Rivadavia', ''),
+(13, 'B1', 'Base Once', ''),
+(14, 'B2', 'Base Ramos', ''),
+(15, 'B4', 'Base Constitución', ''),
+(16, 'B5', 'Base Obelisco', ''),
+(17, 'B6', 'Base Miserere', '');
 
 insert Hospital
 values
-('Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
-('Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
-('Santojanni', 'Pilar 950, Buenos Aires', ''),
-('Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
+(1, 'Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
+(2, 'Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
+(3, 'Santojanni', 'Pilar 950, Buenos Aires', ''),
+(4, 'Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', '');
 
 
 insert User 
 values 
-('gil.maricruz@gmail.com', 'Mari','Gil','Wilde', '42065201', null, null),
-('mari_2748@yahoo.com.ar', 'Cruz','Gil','Avellaneda', '42065201', null, null);
+(1, 'gil.maricruz@gmail.com', 'Mari','Gil','Wilde', '42065201', null, null),
+(2, 'mari_2748@yahoo.com.ar', 'Cruz','Gil','Avellaneda', '42065201', null, null);
 
 ## solo CABA
 insert ReceptionCenter 
@@ -137,9 +138,66 @@ values
 
 insert HospitalProduct
 values
-(4, 'Pañales', 'Posadas', 'Insumo', 30, null),
-(5, 'Dentifrico', 'Posadas', 'Insumo', 15, null),
-(6, 'Jabón', 'Posadas', 'Insumo', 3, null),
-(7, 'Pañales', 'Durand', 'Insumo', 10, null),
-(8, 'Juguetes', 'Durand', 'Existencia', 11, null),
-(9, 'Juguetes', 'Posadas', 'Existencia', 12, null);
+(4, 'Pañales', 1, 'Insumo', 30, null),
+(5, 'Dentifrico', 1, 'Insumo', 15, null),
+(6, 'Jabón', 1, 'Insumo', 3, null),
+(7, 'Pañales', 2, 'Insumo', 10, null),
+(8, 'Juguetes', 2, 'Existencia', 11, null),
+(9, 'Juguetes', 1, 'Existencia', 12, null);
+
+insert ClothingDown
+values
+('1','Pantalón'),
+('2','Calza');
+
+insert ClothingDownSize
+values
+('1','32'),
+('2','34'),
+('3','35'),
+('4','36'),
+('5','37'),
+('6','38'),
+('7','39'),
+('8','40'),
+('9','41'),
+('10','42'),
+('11','43'),
+('12','44'),
+('13','45'),
+('14','46'),
+('15','48'),
+('16','50'),
+('17','52'),
+('18','54'),
+('19','56'),
+('20','58'),
+('21','60'),
+('22','62'),
+('23','64');
+
+insert ClothingUp
+values
+('1','Remera'),
+('2','Camisa'),
+('3','Sweater'),
+('4','Campera');
+
+insert ClothingUpSize
+values
+('1','XXS'),
+('2','XS'),
+('3','X'),
+('4','M'),
+('5','L'),
+('6','XL'),
+('7','XXL');
+
+insert Shoe
+values
+('1','Zapatillas'),
+('2','Zapatos');
+
+insert ShoeSize
+values
+('','');
