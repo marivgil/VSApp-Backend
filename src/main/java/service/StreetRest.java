@@ -1,6 +1,8 @@
 package service;
 
 import model.*;
+import model.clothing.Clothing;
+import model.clothingSize.ClothingSize;
 import persistence.service.StreetService;
 import service.dto.*;
 
@@ -98,9 +100,13 @@ public class StreetRest {
     private Clothes clothesDTOToClothes(ClothesDTO dto) {
         Clothes c = new Clothes();
         c.setGender(Gender.valueOf(dto.getGender()));
-        //c.setName(dto.getName());
+        Clothing clothing = new Clothing();
+        clothing.setName(dto.getName());
+        c.setClothing(clothing);
         c.setQuantity(dto.getQuantity());
-        //c.setWaist(dto.getWaist());
+        ClothingSize cs = new ClothingSize();
+        cs.setSize(dto.getSize());
+        c.setSize(cs);
         return c;
     }
 
@@ -168,9 +174,9 @@ public class StreetRest {
     private ClothesDTO clothesToClothesDTO(Clothes c) {
         ClothesDTO dto = new ClothesDTO();
         dto.setGender(c.getGender().toString());
-        //dto.setName(c.getName());
+        dto.setName(c.getClothing().getName());
         dto.setQuantity(c.getQuantity());
-        //dto.setWaist(c.getWaist());
+        dto.setSize(c.getSize().getSize());
         return dto;
     }
 

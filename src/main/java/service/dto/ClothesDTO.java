@@ -3,7 +3,7 @@ package service.dto;
 public class ClothesDTO {
 
     private String name;
-    private String waist;
+    private String size;
     private int quantity;
     private String gender;
 
@@ -15,12 +15,12 @@ public class ClothesDTO {
         this.name = name;
     }
 
-    public String getWaist() {
-        return waist;
+    public String getSize() {
+        return size;
     }
 
-    public void setWaist(String waist) {
-        this.waist = waist;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     public int getQuantity() {

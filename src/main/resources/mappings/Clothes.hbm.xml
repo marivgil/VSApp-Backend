@@ -11,8 +11,8 @@
         <id name="id">
             <generator class="native"/>
         </id>
-        <property name="name" />
-        <property name="waist" />
+        <property name="clothing" />
+        <property name="size" />
         <property name="quantity" />
         <property name="gender" />
 
