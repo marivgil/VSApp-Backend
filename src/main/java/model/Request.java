@@ -68,8 +68,6 @@ public class Request extends Entity{
         }
 
 
-
-
     OTRA MANERA DE HACER LO MISMO
 */
         for(Clothing c: listClothing){

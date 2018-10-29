@@ -107,7 +107,12 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
-	<bean id="persistence.clothingsizerepository" class="persistence.repositories.ClothingSizeRepository" >
+	<bean id="persistence.upClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryUp" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
+
+	<bean id="persistence.downClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryDown" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
 </beans>

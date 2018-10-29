@@ -3,9 +3,6 @@ package service;
 import model.Clothes;
 import model.Gender;
 import model.Request;
-import model.clothing.Clothing;
-import model.clothing.ClothingUp;
-import model.clothingSize.ClothingSize;
 import persistence.service.ClothingService;
 import service.dto.ClothesDTO;
 
@@ -33,7 +30,23 @@ public class ClothingRest {
     @Produces("application/json")
     public List<ClothesDTO> findAllClothingsUp() {
         List clothings = this.getClothingService().findAllClothingsUp();
-        List<ClothingSize> clothingSizes = this.getClothingService().fillAllClothingSizes();
+        List clothingSizes = this.getClothingService().findAllSizesClothingUp();
+
+        List<Gender> genders = new ArrayList<>();
+        genders.add(Gender.HOMBRE);
+        genders.add(Gender.MUJER);
+
+        Request request = new Request();
+        return listClothesToListClothesDTO(request.getClothingMatrix(clothings, clothingSizes, genders));
+    }
+
+
+    @GET
+    @Path("/findAllClothingsDown")
+    @Produces("application/json")
+    public List<ClothesDTO> findAllClothingsDown() {
+        List clothings = this.getClothingService().findAllClothingsDown();
+        List clothingSizes = this.getClothingService().fillAllSizesClothingDown();
 
         List<Gender> genders = new ArrayList<>();
         genders.add(Gender.HOMBRE);
