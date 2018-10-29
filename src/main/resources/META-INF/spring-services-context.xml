@@ -25,4 +25,10 @@
 		<property name="repository" ref="persistence.hospitalrepository" />
 		<property name="hospitalRepository" ref="persistence.hospitalsrepository" />
 	</bean>
+
+	<bean id="services.clothing" class="persistence.service.ClothingService">
+		<property name="upRepository" ref="persistence.clothinguprepository" />
+		<property name="downRepository" ref="persistence.clothingdownrepository" />
+		<property name="clothingSizeRepository" ref="persistence.clothingsizerepository" />
+	</bean>
 </beans>
