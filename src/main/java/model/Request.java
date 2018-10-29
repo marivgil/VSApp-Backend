@@ -51,6 +51,7 @@ public class Request extends Entity{
     public List<Clothes> getClothingMatrix(List<Clothing> listClothing, List<ClothingSize> listSizes, List<Gender> listGenders) {
 
         this.clothes = new ArrayList<>();
+/*
         Clothes[][][] matriz = new Clothes[listClothing.size()][listSizes.size()][listGenders.size()];
 
         for (int x=0; x < matriz.length; x++) {
@@ -67,10 +68,10 @@ public class Request extends Entity{
         }
 
 
-/*
+
 
     OTRA MANERA DE HACER LO MISMO
-
+*/
         for(Clothing c: listClothing){
             for(ClothingSize s: listSizes){
                 for(Gender g: listGenders){
@@ -83,7 +84,7 @@ public class Request extends Entity{
                 }
             }
         }
-*/
+
         return this.clothes;
     }
 }
