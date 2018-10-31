@@ -1,6 +1,6 @@
 package model;
 
-public class Round {
+public class Round extends Entity{
     private String code;
     private String name;
     private String coordinator;

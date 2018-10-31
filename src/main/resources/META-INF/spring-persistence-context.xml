@@ -115,4 +115,11 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
+	<bean id="persistence.streetrepository" class="persistence.repositories.RequestRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.roundrepository" class="persistence.repositories.RoundRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
 </beans>

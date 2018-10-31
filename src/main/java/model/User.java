@@ -2,9 +2,8 @@ package model;
 
 import javax.persistence.Id;
 
-public class User {
+public class User extends Entity{
 
-    @Id
     private String mail;
     private String surname;
     private String name;

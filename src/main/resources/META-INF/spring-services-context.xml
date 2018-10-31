@@ -32,4 +32,8 @@
 		<property name="upClothingSizeRepository" ref="persistence.upClothingSizeRepository" />
 		<property name="downClothingSizeRepository" ref="persistence.downClothingSizeRepository" />
 	</bean>
+
+	<bean id="services.round" class="persistence.service.RoundService">
+		<property name="repository" ref="persistence.roundrepository" />
+	</bean>
 </beans>

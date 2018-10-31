@@ -1,6 +1,6 @@
 package model;
 
-public class Hospital{
+public class Hospital extends Entity{
     private String name;
     private String address;
     private String phone;

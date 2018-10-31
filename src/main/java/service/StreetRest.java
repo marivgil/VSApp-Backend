@@ -3,6 +3,7 @@ package service;
 import model.*;
 import model.clothing.Clothing;
 import model.clothingSize.ClothingSize;
+import persistence.service.RoundService;
 import persistence.service.StreetService;
 import service.dto.*;
 
@@ -15,13 +16,36 @@ import java.util.List;
 public class StreetRest {
 
     private StreetService streetService;
+    private RoundService roundService;
 
     public StreetService getStreetService() {
         return streetService;
     }
-
     public void setStreetService(StreetService streetService) {
         this.streetService = streetService;
+    }
+
+    public RoundService getRoundService() {
+        return roundService;
+    }
+    public void setRoundService(RoundService roundService) {
+        this.roundService = roundService;
+    }
+
+
+    @GET
+    @Path("/getAllRounds")
+    @Produces("application/json")
+    public List<RoundDTO> getAllRounds(){
+        return listRoundToListRoundDTO(this.getRoundService().findAll());
+    }
+
+    private List<RoundDTO> listRoundToListRoundDTO(List<Round> lr){
+        List<RoundDTO> listrd = new ArrayList<>();
+        for(Round r: lr){
+            listrd.add(roundToRoundDTO(r));
+        }
+        return listrd;
     }
 
     @POST

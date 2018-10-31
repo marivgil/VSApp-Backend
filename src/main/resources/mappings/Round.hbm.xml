@@ -7,8 +7,10 @@
                    default-cascade="save-update">
 
     <class name="model.Round">
-
-        <id name="code" />
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="code" />
         <property name="name" />
         <property name="coordinator" />
     </class>
