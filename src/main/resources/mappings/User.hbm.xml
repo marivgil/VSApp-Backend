@@ -7,8 +7,10 @@
                    default-cascade="save-update">
 
     <class name="model.User">
-
-        <id name="mail"/>
+        <id name="id">
+            <generator class="native"/>
+        </id>
+        <property name="mail"/>
         <property name="name" />
         <property name="surname" />
         <property name="location" />

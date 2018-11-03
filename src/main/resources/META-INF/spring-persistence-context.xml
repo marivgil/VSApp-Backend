@@ -99,4 +99,27 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
+	<bean id="persistence.clothinguprepository" class="persistence.repositories.ClothingRepositoryUp" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.clothingdownrepository" class="persistence.repositories.ClothingRepositoryDown" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.upClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryUp" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.downClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryDown" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.streetrepository" class="persistence.repositories.RequestRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
+
+	<bean id="persistence.roundrepository" class="persistence.repositories.RoundRepository" >
+		<property name="sessionFactory" ref="persistence.sessionFactory" />
+	</bean>
 </beans>
