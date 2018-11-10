@@ -11,6 +11,7 @@
             <generator class="native"/>
         </id>
         <property name="size" />
+        <property name="code" />
     </class>
 
 </hibernate-mapping>

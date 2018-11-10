@@ -1,6 +1,7 @@
 package service;
 
 import model.clothing.Clothing;
+import model.clothingSize.ClothingSize;
 import persistence.service.ClothingService;
 import service.dto.ClothingDTO;
 
@@ -92,4 +93,13 @@ public class ClothingRest {
         dto.setName(c.getName());
         return dto;
     }
+
+    @GET
+    @Path("/findAllSizeClothings")
+    @Produces("application/json")
+    public List<ClothingSize> findAllSizeClothings() {
+        //return listSizeClothingToListSizeClothingDTO(this.getClothingService().findAllSizesClothing());
+        return this.getClothingService().findAllSizesClothing();
+    }
+
 }
