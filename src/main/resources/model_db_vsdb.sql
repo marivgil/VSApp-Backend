@@ -145,12 +145,18 @@ values
 (8, 'Juguetes', 2, 'Existencia', 11, null),
 (9, 'Juguetes', 1, 'Existencia', 12, null);
 
-insert ClothingDown
+insert Clothing
 values
 ('1','Pantalón'),
-('2','Calza');
+('2','Calza'),
+('3','Remera'),
+('4','Camisa'),
+('5','Sweater'),
+('6','Campera'),
+('7','Zapatillas'),
+('8','Zapatos');
 
-insert ClothingDownSize
+insert ClothingSize
 values
 ('1','32'),
 ('2','34'),
@@ -174,30 +180,11 @@ values
 ('20','58'),
 ('21','60'),
 ('22','62'),
-('23','64');
-
-insert ClothingUp
-values
-('1','Remera'),
-('2','Camisa'),
-('3','Sweater'),
-('4','Campera');
-
-insert ClothingUpSize
-values
-('1','XXS'),
-('2','XS'),
-('3','X'),
-('4','M'),
-('5','L'),
-('6','XL'),
-('7','XXL');
-
-insert Shoe
-values
-('1','Zapatillas'),
-('2','Zapatos');
-
-insert ShoeSize
-values
-('','');
+('23','64'),
+('24','XXS'),
+('25','XS'),
+('26','X'),
+('27','M'),
+('28','L'),
+('29','XL'),
+('30','XXL');

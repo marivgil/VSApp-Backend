@@ -1,10 +1,8 @@
 package service;
 
-import model.Clothes;
-import model.Gender;
-import model.Request;
+import model.clothing.Clothing;
 import persistence.service.ClothingService;
-import service.dto.ClothesDTO;
+import service.dto.ClothingDTO;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -24,7 +22,7 @@ public class ClothingRest {
     public void setClothingService(ClothingService clothingService) {
         this.clothingService = clothingService;
     }
-
+/*
     @GET
     @Path("/findAllClothingsUp")
     @Produces("application/json")
@@ -72,5 +70,26 @@ public class ClothingRest {
         dto.setSize(c.getSize().getSize());
         return dto;
     }
+*/
 
+    @GET
+    @Path("/findAllClothings")
+    @Produces("application/json")
+    public List<ClothingDTO> findAllClothings() {
+        return listClothingToListClothingDTO(this.getClothingService().findAllClothings());
+    }
+
+    private List<ClothingDTO> listClothingToListClothingDTO(List<Clothing> clothes) {
+        List<ClothingDTO> listdto = new ArrayList<>();
+        for(Clothing c: clothes){
+            listdto.add(clothingToClothingDTO(c));
+        }
+        return listdto;
+    }
+
+    private ClothingDTO clothingToClothingDTO(Clothing c) {
+        ClothingDTO dto = new ClothingDTO();
+        dto.setName(c.getName());
+        return dto;
+    }
 }
