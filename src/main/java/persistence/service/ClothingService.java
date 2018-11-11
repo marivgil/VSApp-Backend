@@ -1,76 +1,43 @@
 package persistence.service;
 
 import model.clothing.Clothing;
-import model.clothing.ClothingDown;
-import model.clothing.ClothingUp;
-import model.clothingSize.ClothingDownSize;
-import model.clothingSize.ClothingUpSize;
+import model.clothingSize.ClothingSize;
 import org.springframework.transaction.annotation.Transactional;
-import persistence.repositories.ClothingRepositoryDown;
-import persistence.repositories.ClothingRepositoryUp;
-import persistence.repositories.ClothingSizeRepositoryDown;
-import persistence.repositories.ClothingSizeRepositoryUp;
+import persistence.repositories.ClothingRepository;
+import persistence.repositories.ClothingSizeRepository;
 
 import java.util.List;
 
 public class ClothingService extends GenericService<Clothing>{
 
-    private ClothingRepositoryUp upRepository;
-    private ClothingRepositoryDown downRepository;
-    private ClothingSizeRepositoryUp upClothingSizeRepository;
-    private ClothingSizeRepositoryDown downClothingSizeRepository;
+    private ClothingRepository repository;
+    private ClothingSizeRepository clothingSizeRepository;
 
-    public ClothingRepositoryUp getUpRepository() {
-        return upRepository;
+    public ClothingRepository getRepository() {
+        return repository;
+    }
+    public void setRepository(ClothingRepository repository) {
+        this.repository = repository;
     }
 
-    public void setUpRepository(ClothingRepositoryUp upRepository) {
-        this.upRepository = upRepository;
-    }
 
-    public ClothingRepositoryDown getDownRepository() {
-        return downRepository;
+    public ClothingSizeRepository getClothingSizeRepository() {
+        return clothingSizeRepository;
     }
-
-    public void setDownRepository(ClothingRepositoryDown downRepository) {
-        this.downRepository = downRepository;
-    }
-
-    public ClothingSizeRepositoryUp getUpClothingSizeRepository() {
-        return upClothingSizeRepository;
-    }
-
-    public void setUpClothingSizeRepository(ClothingSizeRepositoryUp upClothingSizeRepository) {
-        this.upClothingSizeRepository = upClothingSizeRepository;
-    }
-
-    public ClothingSizeRepositoryDown getDownClothingSizeRepository() {
-        return downClothingSizeRepository;
-    }
-
-    public void setDownClothingSizeRepository(ClothingSizeRepositoryDown downClothingSizeRepository) {
-        this.downClothingSizeRepository = downClothingSizeRepository;
+    public void setClothingSizeRepository(ClothingSizeRepository clothingSizeRepository) {
+        this.clothingSizeRepository = clothingSizeRepository;
     }
 
     // **************** SERVICIOS ****************************************
 
     @Transactional
-    public List<ClothingUpSize> findAllSizesClothingUp(){
-        return this.getUpClothingSizeRepository().findAll();
+    public List<ClothingSize> findAllSizesClothing(){
+        return this.getClothingSizeRepository().findAll();
     }
 
     @Transactional
-    public List<ClothingUp> findAllClothingsUp() {
-        return this.getUpRepository().findAll();
+    public List<Clothing> findAllClothings() {
+        return this.getRepository().findAll();
     }
 
-    @Transactional
-    public List<ClothingDown> findAllClothingsDown() {
-        return this.getDownRepository().findAll();
-    }
-
-    @Transactional
-    public List<ClothingDownSize> fillAllSizesClothingDown() {
-        return this.getDownClothingSizeRepository().findAll();
-    }
 }

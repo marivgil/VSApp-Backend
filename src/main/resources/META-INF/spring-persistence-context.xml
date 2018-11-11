@@ -99,19 +99,11 @@
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
-	<bean id="persistence.clothinguprepository" class="persistence.repositories.ClothingRepositoryUp" >
+	<bean id="persistence.clothingrepository" class="persistence.repositories.ClothingRepository" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 
-	<bean id="persistence.clothingdownrepository" class="persistence.repositories.ClothingRepositoryDown" >
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
-	</bean>
-
-	<bean id="persistence.upClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryUp" >
-		<property name="sessionFactory" ref="persistence.sessionFactory" />
-	</bean>
-
-	<bean id="persistence.downClothingSizeRepository" class="persistence.repositories.ClothingSizeRepositoryDown" >
+	<bean id="persistence.clothingSizeRepository" class="persistence.repositories.ClothingSizeRepository" >
 		<property name="sessionFactory" ref="persistence.sessionFactory" />
 	</bean>
 

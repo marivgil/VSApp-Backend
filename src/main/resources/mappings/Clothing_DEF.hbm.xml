@@ -5,12 +5,13 @@
 <hibernate-mapping default-access="field"
                    default-cascade="save-update">
 
-    <class name="model.clothing.Shoe">
+    <class name="model.clothing.Clothing">
 
         <id name="id">
             <generator class="native"/>
         </id>
         <property name="name" />
+        <property name="code" />
     </class>
 
 </hibernate-mapping>

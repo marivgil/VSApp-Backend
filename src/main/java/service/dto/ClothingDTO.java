@@ -1,11 +1,8 @@
-package model.clothing;
+package service.dto;
 
-import model.Entity;
-
-public class Clothing extends Entity{
+public class ClothingDTO {
 
     private String name;
-    private String code;
 
     public String getName() {
         return name;
