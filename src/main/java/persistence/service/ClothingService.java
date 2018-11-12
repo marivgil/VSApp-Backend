@@ -36,8 +36,8 @@ public class ClothingService extends GenericService<Clothing>{
     }
 
     @Transactional
-    public List<Clothing> findAllClothings() {
-        return this.getRepository().findAll();
+    public List<Clothing> findAllClothings(List<String> genders) {
+        return this.getRepository().findAllClothings(genders);
     }
 
 }

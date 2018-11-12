@@ -17,7 +17,7 @@ select * from Request;
 select * from Round;
 select * from WeeklyRound;
 select * from Coord;
-select * from ClothingDownSize;
+select * from ClothingSize;
 
 
 
@@ -147,14 +147,29 @@ values
 
 insert Clothing
 values
-('1','Pantalón', '2'),
-('2','Calza', '2'),
-('3','Remera', '1'),
-('4','Camisa', '1'),
-('5','Sweater', '1'),
-('6','Campera', '1'),
-('7','Zapatillas', '2'),
-('8','Zapatos', '2');
+('1','Pantalón', '0'),
+('2','Calza', '1'),
+('3','Remera', '0'),
+('4','Camisa', '0'),
+('5','Sweater', '0'),
+('6','Campera', '0'),
+('7','Zapatillas', '0'),
+('8','Zapatos', '0'),
+('9','Medias', '0'),
+('10','Guantes', '0'),
+('11','Gorro', '0'),
+('12','Calzoncillos', '2'),
+('13','Calzoncillos Largos', '2'),
+('14','Bufanda', '0'),
+('15','Corpiño', '1'),
+('16','Bombacha', '1'),
+('17','Pañales', '3');
+
+-- GENERICO 0 
+-- MUJER y NENA 1
+-- HOMBRE y NENE 2
+-- NIÑOS 3
+
 
 insert ClothingSize
 values

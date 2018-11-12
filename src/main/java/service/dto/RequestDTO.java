@@ -9,6 +9,7 @@ public class RequestDTO {
     private String preparedBy;
     private String reviewedBy;
     private List<ClothesDTO> clothes;
+    private List<String> others;
 
     public Date getDate() {
         return date;
@@ -42,4 +43,11 @@ public class RequestDTO {
         this.clothes = clothes;
     }
 
+    public List<String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(List<String> others) {
+        this.others = others;
+    }
 }

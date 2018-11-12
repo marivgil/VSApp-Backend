@@ -5,10 +5,9 @@ import model.clothingSize.ClothingSize;
 import persistence.service.ClothingService;
 import service.dto.ClothingDTO;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @Path("/clothingService")
@@ -23,61 +22,18 @@ public class ClothingRest {
     public void setClothingService(ClothingService clothingService) {
         this.clothingService = clothingService;
     }
-/*
-    @GET
-    @Path("/findAllClothingsUp")
-    @Produces("application/json")
-    public List<ClothesDTO> findAllClothingsUp() {
-        List clothings = this.getClothingService().findAllClothingsUp();
-        List clothingSizes = this.getClothingService().findAllSizesClothingUp();
-
-        List<Gender> genders = new ArrayList<>();
-        genders.add(Gender.HOMBRE);
-        genders.add(Gender.MUJER);
-
-        Request request = new Request();
-        return listClothesToListClothesDTO(request.getClothingMatrix(clothings, clothingSizes, genders));
-    }
-
 
     @GET
-    @Path("/findAllClothingsDown")
+    @Path("/findAllClothings/{genders}")
     @Produces("application/json")
-    public List<ClothesDTO> findAllClothingsDown() {
-        List clothings = this.getClothingService().findAllClothingsDown();
-        List clothingSizes = this.getClothingService().fillAllSizesClothingDown();
-
-        List<Gender> genders = new ArrayList<>();
-        genders.add(Gender.HOMBRE);
-        genders.add(Gender.MUJER);
-
-        Request request = new Request();
-        return listClothesToListClothesDTO(request.getClothingMatrix(clothings, clothingSizes, genders));
+    @Consumes("application/json")
+    public List<ClothingDTO> findAllClothings(@PathParam("genders") final String genders) {
+        return listClothingToListClothingDTO(this.getClothingService().
+                findAllClothings(CommaSeparatedList(genders)));
     }
 
-    private List<ClothesDTO> listClothesToListClothesDTO(List<Clothes> clothes) {
-        List<ClothesDTO> listdto = new ArrayList<>();
-        for(Clothes c: clothes){
-            listdto.add(clothesToClothesDTO(c));
-        }
-        return listdto;
-    }
-
-    private ClothesDTO clothesToClothesDTO(Clothes c) {
-        ClothesDTO dto = new ClothesDTO();
-        dto.setGender(c.getGender().toString());
-        dto.setName(c.getClothing().getName());
-        dto.setQuantity(c.getQuantity());
-        dto.setSize(c.getSize().getSize());
-        return dto;
-    }
-*/
-
-    @GET
-    @Path("/findAllClothings")
-    @Produces("application/json")
-    public List<ClothingDTO> findAllClothings() {
-        return listClothingToListClothingDTO(this.getClothingService().findAllClothings());
+    private List<String> CommaSeparatedList(String list){
+        return Arrays.asList(list.split(","));
     }
 
     private List<ClothingDTO> listClothingToListClothingDTO(List<Clothing> clothes) {
@@ -98,7 +54,6 @@ public class ClothingRest {
     @Path("/findAllSizeClothings")
     @Produces("application/json")
     public List<ClothingSize> findAllSizeClothings() {
-        //return listSizeClothingToListSizeClothingDTO(this.getClothingService().findAllSizesClothing());
         return this.getClothingService().findAllSizesClothing();
     }
 
