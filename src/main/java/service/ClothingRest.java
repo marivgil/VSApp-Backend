@@ -1,7 +1,7 @@
 package service;
 
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 import persistence.service.ClothingService;
 import service.dto.ClothingDTO;
 
@@ -29,10 +29,10 @@ public class ClothingRest {
     @Consumes("application/json")
     public List<ClothingDTO> findAllClothings(@PathParam("genders") final String genders) {
         return listClothingToListClothingDTO(this.getClothingService().
-                findAllClothings(CommaSeparatedList(genders)));
+                findAllClothings(commaSeparatedList(genders)));
     }
 
-    private List<String> CommaSeparatedList(String list){
+    private List<String> commaSeparatedList(String list){
         return Arrays.asList(list.split(","));
     }
 

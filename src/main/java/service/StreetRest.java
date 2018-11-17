@@ -2,7 +2,7 @@ package service;
 
 import model.*;
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 import persistence.service.RoundService;
 import persistence.service.StreetService;
 import service.dto.*;

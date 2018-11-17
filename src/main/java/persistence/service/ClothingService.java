@@ -1,7 +1,7 @@
 package persistence.service;
 
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.repositories.ClothingRepository;
 import persistence.repositories.ClothingSizeRepository;
