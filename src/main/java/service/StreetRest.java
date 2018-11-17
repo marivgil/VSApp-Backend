@@ -2,7 +2,7 @@ package service;
 
 import model.*;
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 import persistence.service.RoundService;
 import persistence.service.StreetService;
 import service.dto.*;
@@ -93,6 +93,7 @@ public class StreetRest {
         r.setPreparedBy(dto.getPreparedBy());
         r.setReviewedBy(dto.getReviewedBy());
         r.setClothes(listClothesDTOToListClothes(dto.getClothes()));
+        r.setOthers(dto.getOthers());
         return r;
     }
 
@@ -159,6 +160,7 @@ public class StreetRest {
         dto.setPreparedBy(r.getPreparedBy());
         dto.setReviewedBy(r.getReviewedBy());
         dto.setClothes(listClothesToListClothesDTO(r.getClothes()));
+        dto.setOthers(r.getOthers());
         return dto;
     }
 

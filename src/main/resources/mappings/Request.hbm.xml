@@ -19,6 +19,12 @@
             <index column="idRequest"/>
             <one-to-many class="model.Clothes"/>
         </list>
+        <list name="others" lazy="false" cascade="all">
+            <key column="other_"/>
+            <index column="idOther"/>
+            <element column="other" type="string"/>
+        </list>
+
 
     </class>
 

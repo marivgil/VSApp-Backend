@@ -1,4 +1,4 @@
-package model.clothingSize;
+package model.clothingsize;
 
 import model.Entity;
 

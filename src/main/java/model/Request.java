@@ -1,7 +1,7 @@
 package model;
 
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -13,6 +13,7 @@ public class Request extends Entity{
     private String preparedBy;
     private String reviewedBy;
     private List<Clothes> clothes;
+    private List<String> others;
 
     public Request(){}
 
@@ -46,6 +47,14 @@ public class Request extends Entity{
 
     public void setClothes(List<Clothes> clothes) {
         this.clothes = clothes;
+    }
+
+    public List<String> getOthers() {
+        return others;
+    }
+
+    public void setOthers(List<String> others) {
+        this.others = others;
     }
 
     public List<Clothes> getClothingMatrix(List<Clothing> listClothing, List<ClothingSize> listSizes, List<Gender> listGenders) {

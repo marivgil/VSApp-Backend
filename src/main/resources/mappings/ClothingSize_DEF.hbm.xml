@@ -5,7 +5,7 @@
 <hibernate-mapping default-access="field"
                    default-cascade="save-update">
 
-    <class name="model.clothingSize.ClothingSize">
+    <class name="model.clothingsize.ClothingSize">
 
         <id name="id">
             <generator class="native"/>

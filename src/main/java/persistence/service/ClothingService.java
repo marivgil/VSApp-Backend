@@ -1,7 +1,7 @@
 package persistence.service;
 
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 import org.springframework.transaction.annotation.Transactional;
 import persistence.repositories.ClothingRepository;
 import persistence.repositories.ClothingSizeRepository;
@@ -36,8 +36,8 @@ public class ClothingService extends GenericService<Clothing>{
     }
 
     @Transactional
-    public List<Clothing> findAllClothings() {
-        return this.getRepository().findAll();
+    public List<Clothing> findAllClothings(List<String> genders) {
+        return this.getRepository().findAllClothings(genders);
     }
 
 }

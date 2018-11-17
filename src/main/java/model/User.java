@@ -1,7 +1,5 @@
 package model;
 
-import javax.persistence.Id;
-
 public class User extends Entity{
 
     private String mail;

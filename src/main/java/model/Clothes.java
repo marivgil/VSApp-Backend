@@ -1,7 +1,7 @@
 package model;
 
 import model.clothing.Clothing;
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 
 public class Clothes extends Entity{
 

@@ -1,6 +1,6 @@
 package persistence.repositories;
 
-import model.clothingSize.ClothingSize;
+import model.clothingsize.ClothingSize;
 
 public class ClothingSizeRepository
         extends HibernateGenericDAO<ClothingSize>
