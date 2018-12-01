@@ -6,10 +6,7 @@
                    default-cascade="save-update">
 
     <class name="model.Hospital">
-        <id name="id">
-            <generator class="native"/>
-        </id>
-        <property name="name" />
+        <id name="name"/>
         <property name="address" />
         <property name="phone" />
 

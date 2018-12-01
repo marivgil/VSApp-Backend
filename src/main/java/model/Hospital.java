@@ -1,6 +1,10 @@
 package model;
 
-public class Hospital extends Entity{
+import javax.persistence.Id;
+
+public class Hospital{
+
+    @Id
     private String name;
     private String address;
     private String phone;
