@@ -48,17 +48,28 @@ public class StreetRest {
         return listrd;
     }
 
+    @PUT
+    @Path("/updateRequest")
+    @Produces("application/json")
+    @Consumes("application/json")
+    public Response updateRequestRest(WeeklyRoundDTO dto){
+        WeeklyRound weeklyRound = weeklyRoundDTOToWeeklyRound(dto);
+        this.getStreetService().merge(weeklyRound);
+        return Response.ok().build();
+    }
+
     @POST
     @Path("/createRequest")
     @Produces("application/json")
     @Consumes("application/json")
-    public Response createRequestRest(WeeklyRoundDTO dto){
-        this.getStreetService().save(weeklyRoundDTOToWeeklyRound(dto));
-        return Response.ok().build();
+    public WeeklyRoundDTO createRequestRest(WeeklyRoundDTO dto){
+        WeeklyRound wr = this.getStreetService().merge(weeklyRoundDTOToWeeklyRound(dto));
+        return weeklyRoundToWeeklyRoundDTO(wr);
     }
 
     private WeeklyRound weeklyRoundDTOToWeeklyRound(WeeklyRoundDTO dto) {
         WeeklyRound wr = new WeeklyRound();
+        wr.setId(dto.getId());
         wr.setCurrentCoords(coordDTOToCoord(dto.getCurrentCoords()));
         wr.setDescription(dto.getDescription());
 /*        wr.setSinceHour(
@@ -166,6 +177,7 @@ public class StreetRest {
 
     private WeeklyRoundDTO weeklyRoundToWeeklyRoundDTO(WeeklyRound wr) {
         WeeklyRoundDTO dto = new WeeklyRoundDTO();
+        dto.setId(wr.getId());
         dto.setCurrentCoords(coordToCoordDTO(wr.getCurrentCoords()));
         dto.setDescription(wr.getDescription());
 /*

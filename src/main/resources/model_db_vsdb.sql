@@ -24,23 +24,23 @@ select * from ClothingSize;
 
 insert Round
 values
-(1, '1', 'Mitre', ''),
-(2, '2', 'Houssay', ''),
-(3, '3', 'Colon', ''),
-(4, '4', 'Yrigoyen', ''),
-(5, '5', 'Corrientes', ''),
-(6, '6', 'Belgrano', ''),
-(7, '7', 'Boedo', ''),
-(8, '8', 'San José', ''),
-(9, '9', 'Callao', ''),
-(10, '10', 'Lima', ''),
-(11, '11', 'Alem', ''),
-(12, '13', 'Rivadavia', ''),
-(13, 'B1', 'Base Once', ''),
-(14, 'B2', 'Base Ramos', ''),
-(15, 'B4', 'Base Constitución', ''),
-(16, 'B5', 'Base Obelisco', ''),
-(17, 'B6', 'Base Miserere', '');
+('1', 'Mitre', ''),
+('2', 'Houssay', ''),
+('3', 'Colon', ''),
+('4', 'Yrigoyen', ''),
+('5', 'Corrientes', ''),
+('6', 'Belgrano', ''),
+('7', 'Boedo', ''),
+('8', 'San José', ''),
+('9', 'Callao', ''),
+('10', 'Lima', ''),
+('11', 'Alem', ''),
+('13', 'Rivadavia', ''),
+('B1', 'Base Once', ''),
+('B2', 'Base Ramos', ''),
+('B4', 'Base Constitución', ''),
+('B5', 'Base Obelisco', ''),
+('B6', 'Base Miserere', '');
 
 insert Hospital
 values

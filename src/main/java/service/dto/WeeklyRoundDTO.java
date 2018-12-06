@@ -2,6 +2,7 @@ package service.dto;
 
 public class WeeklyRoundDTO {
 
+    private int id;
     private RequestDTO request;
     private String description;
     private String sinceHour;
@@ -56,4 +57,13 @@ public class WeeklyRoundDTO {
     public void setRound(RoundDTO round) {
         this.round = round;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }
