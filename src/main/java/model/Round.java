@@ -1,6 +1,10 @@
 package model;
 
-public class Round extends Entity{
+import javax.persistence.Id;
+
+public class Round{
+
+    @Id
     private String code;
     private String name;
     private String coordinator;
