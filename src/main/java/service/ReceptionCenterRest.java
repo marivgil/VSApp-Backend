@@ -42,7 +42,7 @@ public class ReceptionCenterRest {
     @Consumes("application/json")
     public Response createReceptionCenterRest(ReceptionCenterDTO dto){
         ReceptionCenter rc = rcDTOtoRc(dto);
-        this.getReceptionCenterService().save(rc);
+        this.getReceptionCenterService().merge(rc);
         return Response.ok().build();
     }
 
@@ -63,7 +63,7 @@ public class ReceptionCenterRest {
             ll.add(location);
         }
         rc.setNearbyLocations(ll);
-
+        rc.setMail(dto.getMail());
         return rc;
     }
 
@@ -89,6 +89,7 @@ public class ReceptionCenterRest {
             ll.add(location);
         }
         dto.setNearbyLocations(ll);
+        dto.setMail(rc.getMail());
         return dto;
     }
 }

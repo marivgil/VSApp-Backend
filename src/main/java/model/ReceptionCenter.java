@@ -9,6 +9,7 @@ public class ReceptionCenter extends Entity{
     private String location;
     private String phone;
     private List<Location> nearbyLocations;
+    private String mail;
 
     public String getName() {
         return name;
@@ -48,5 +49,13 @@ public class ReceptionCenter extends Entity{
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }

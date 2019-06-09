@@ -9,6 +9,7 @@ public class ReceptionCenterDTO {
     private String location;
     private String phone;
     private List<LocationDTO> nearbyLocations;
+    private String mail;
 
     public ReceptionCenterDTO(){}
 
@@ -50,5 +51,13 @@ public class ReceptionCenterDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getMail() {
+        return mail;
+    }
+
+    public void setMail(String mail) {
+        this.mail = mail;
     }
 }
