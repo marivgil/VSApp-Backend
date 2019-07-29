@@ -3,12 +3,26 @@ package service;
 import model.Area;
 import model.Profile;
 import model.User;
+import org.apache.cxf.rs.security.cors.CrossOriginResourceSharing;
 import persistence.service.UserService;
 import service.dto.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
+@CrossOriginResourceSharing(
+        allowOrigins = {
+                "https://vsapp-frontend.herokuapp.com"
+        },
+        allowCredentials = true,
+        maxAge = 1,
+        allowHeaders = {
+                "X-custom-1", "X-custom-2"
+        },
+        exposeHeaders = {
+                "X-custom-3", "X-custom-4"
+        }
+)
 @Path("/servicesUsers")
 public class UserRest {
 
