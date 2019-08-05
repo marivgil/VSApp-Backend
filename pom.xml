@@ -9,7 +9,7 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <jetty.version>9.4.8</jetty.version>
+        <jetty.version>9.3.3.v20150827</jetty.version>
         <spring.version>4.2.5.RELEASE</spring.version>
         <hibernate.version>4.3.7.Final</hibernate.version>
 
@@ -40,12 +40,13 @@
             <version>1.7.5</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/log4j/log4j -->
+        <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>1.2.17</version>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.12.0</version>
         </dependency>
+
 
         <!-- /////// -->
         <!-- Common - -->
