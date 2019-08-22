@@ -15,12 +15,13 @@ test:
 before_install:
   - mysql -e 'CREATE DATABASE vsdb; '
   - mysql -e 'USE vsdb; create table Hospital (name varchar(255) not null, address varchar(255), phone varchar(255), primary key (name));'
-  - mysql -e 'USE vsdb; insert Hospital
+  - mysql -e 'insert Hospital
               values
               ('Posadas', 'Avenida Presidente Arturo U. Illia s/n y Marconi Morón, B1684 El Palomar, Pcia de Buenos Aires', ''),
               ('Durand', 'Av. Díaz Vélez 5044, C1405DCS CABA', ''),
               ('Santojanni', 'Pilar 950, Buenos Aires', ''),
-              ('Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', ''); '
+              ('Rivadavia', 'Av. Gral. Las Heras 2670, C1425ASQ CABA', ''); 
+              commit; '
 
 
 notifications:
